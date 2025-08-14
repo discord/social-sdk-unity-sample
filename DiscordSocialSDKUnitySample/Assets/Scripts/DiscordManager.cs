@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 #if DISCORD_SOCIAL_SDK_EXISTS
 using Discord.Sdk;
 #endif
@@ -48,6 +47,12 @@ public class DiscordManager : MonoBehaviour
         client.AddLogCallback(OnLog, LoggingSeverity.Error);
         client.SetStatusChangedCallback(OnStatusChanged);
         client.SetRelationshipGroupsUpdatedCallback(OnRelationshipsUpdated);
+    }
+
+    void Start()
+    {
+        // Registering an empty launch command will register the current running executible/app in Windows, Mac, and Linux
+        client.RegisterLaunchCommand(discordSocialSDKConfig.ApplicationId, string.Empty);
     }
 
     private void OnDestroy()
