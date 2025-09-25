@@ -10,10 +10,10 @@ This sample showcases many Discord Social SDK features in a complete, interactiv
 - **Account Linking & Authentication** - Discord OAuth2 integration with secure token storage
 - **Friends List** - Display and interact with Discord friends lists
 - **Rich Presence** - Dynamic Discord activity cards with lobby and invite integration
+- **Game Lobbies** - Create, join, and manage multiplayer lobbies
 
 Planned features that haven't been implemented yet:
 - **Friend Management** - Send friend requests and remove friends
-- **Game Lobbies** - Create, join, and manage multiplayer lobbies
 - **Game Invitations** - Send deep-link invites to friends for instant lobby joining
 - **Direct Messaging** - In-game messaging
 - **Linked Channels** - Connect game chat to Discord server channels

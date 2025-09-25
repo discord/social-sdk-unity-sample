@@ -8,7 +8,8 @@ using Discord.Sdk;
 #endif
 
 /// <summary>
-/// 
+/// Lobby handles creating, joining, and leaving Discord Lobbies. Through the UI the player can create or leave a lobby.
+/// Joining a lobby directly happens through invites and Rich Presence.
 /// </summary>
 public class Lobby : MonoBehaviour
 {
