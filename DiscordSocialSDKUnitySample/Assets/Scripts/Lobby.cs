@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 using System.Collections;
+
 
 #if DISCORD_SOCIAL_SDK_EXISTS
 using Discord.Sdk;
@@ -15,14 +15,18 @@ public class Lobby : MonoBehaviour
 {
     [SerializeField] private Button createLobbyButton;
     [SerializeField] private Button leaveLobbyButton;
-    [SerializeField] private string lobbySecret;
+    [SerializeField] private int maxLobbySize = 4;
+    private string lobbySecret;
 
 #if DISCORD_SOCIAL_SDK_EXISTS
     private Client client;
     private ulong currentLobby;
+    private RichPresence richPresence;
 
     void Start()
     {
+        richPresence = FindFirstObjectByType<RichPresence>();
+
         client = DiscordManager.Instance.GetClient();
         DiscordManager.Instance.OnDiscordStatusChanged += OnStatusChanged;
 
@@ -71,6 +75,11 @@ public class Lobby : MonoBehaviour
 
             leaveLobbyButton.gameObject.SetActive(true);
 
+            if(richPresence != null)
+            {
+                richPresence.UpdateRichPresenceLobby(ActivityTypes.Playing, "In Lobby", "Waiting for players", lobbySecret, lobbyId.ToString(), maxLobbySize);
+            }
+
             Debug.Log($"Successfully created or joined lobby {lobbyId}");
         }
         else
@@ -92,10 +101,17 @@ public class Lobby : MonoBehaviour
     {
         if (clientResult.Successful())
         {
-            Debug.Log($"Successfully left lobby {currentLobby}");
             currentLobby = 0;
+            lobbySecret = string.Empty;
 
             createLobbyButton.gameObject.SetActive(true);
+
+            if(richPresence != null)
+            {
+                richPresence.SetDefaultRichPresence();
+            }
+
+            Debug.Log($"Successfully left lobby {currentLobby}");
         }
         else
         {
