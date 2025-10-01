@@ -20,13 +20,13 @@ Planned features that haven't been implemented yet:
 
 ## Questions This Sample Answers
 How do I create friends list for my game and keep it updated and sorted?
-> Using the Discord Social SDK you can fetch a player's friends list and display it in your game. This sample demonstrates how to fetch the friends list, display each friend's username, status, and avatar, and keep it updated in real-time. It also shows how to sort friends by their online status and username.
+> Using the Discord Social SDK you can [fetch a player's friends list and display it in your game](https://github.com/discord/social-sdk-unity-sample/blob/main/DiscordSocialSDKUnitySample/Assets/Scripts/FriendsList.cs). This sample demonstrates how to fetch the friends list, display each friend's username, status, and avatar, and keep it updated in real-time. It also shows how to sort friends by their online status and username.
 
 How do I handle performance with a friends list in my game?
-> By sorting friends client-side and only updating the UI when there are changes, you can create a responsive friends list. This sample keeps the friends list updated in real-time by only updating the UI for an individual player when their info changes and then sorts them into the proper position in the UI. It doesn't create or destroy any UI elements once they've been initialized.
+> By [sorting friends client-side](https://github.com/discord/social-sdk-unity-sample/blob/main/DiscordSocialSDKUnitySample/Assets/Scripts/FriendsList.cs#L87-L121) and only [updating the UI when there are changes](https://github.com/discord/social-sdk-unity-sample/blob/main/DiscordSocialSDKUnitySample/Assets/Scripts/FriendsList.cs#L131-L162), you can create a responsive friends list. This sample keeps the friends list updated in real-time by only updating the UI for an individual player when their info changes and then sorts them into the proper position in the UI. It doesn't create or destroy any UI elements once they've been initialized.
 
 How can I make my game more discoverable? How can I help my game go viral?
-> Using Rich Presence makes it easy for friends to see what you're playing and join in directly from Discord. Allowing invites through your game's UI lets players invite their friends through the game or Discord. With Discord being the social platform for gamers, integrating the Discord Social SDK makes it easy for players to connect and play together, increasing your game's visibility and player base.
+> Using [Rich Presence](https://github.com/discord/social-sdk-unity-sample/blob/main/DiscordSocialSDKUnitySample/Assets/Scripts/RichPresence.cs) makes it easy for friends to see what you're playing and join in directly from Discord. Allowing invites through your game's UI lets players invite their friends through the game or Discord. With Discord being the social platform for gamers, integrating the Discord Social SDK makes it easy for players to connect and play together, increasing your game's visibility and player base.
 
 ## Quick Start
 
@@ -95,7 +95,7 @@ If nothing happens when you click the "Connect to Discord" button, make sure you
 You'll see this warning if you open the project in a different version of Unity than it was created with. It's safe to ignore as long as you're opening the sample in a compatible version (Unity 6+). You can press "Continue" and you might get another modal saying "URP Material upgrade" which you can safely press "Ok" on.
 
 ## Project Structure
-This sample creates easy to use prefabs that can be used to build out parts of the Discord Social SDK. The central piece is the `DiscordManager` which handles the connection to Discord and provides access to the SDK features. In order to use the `DiscordManager`, you need to create a `DiscordSocialSdkConfig` Scriptable Object with the Application ID from the Discord Developer Portal and assign it to the `DiscordManager`. The friend list is built using the `FriendsList` prefab, which contains the logic to fetch and display friends. Each friend is represented by a `FriendUI` prefab that shows their username, status, and profile picture. Rich Presence is handled by the `RichPresence` prefab, which updates the user's activity status in Discord. Each prefab is easy to drop into your scene and customize as needed.
+This sample creates easy to use prefabs that can be used to build out parts of the Discord Social SDK. The central piece is the `DiscordManager` which handles the connection to Discord and provides access to the SDK features. In order to use the `DiscordManager`, you need to create a `DiscordSocialSdkConfig` Scriptable Object with the Application ID from the Discord Developer Portal and assign it to the `DiscordManager`. The friend list is built using the `FriendsList` prefab, which contains the logic to fetch and display friends. Each friend is represented by a `FriendUI` prefab that shows their username, status, and profile picture. Rich Presence is handled by the `RichPresence` prefab, which updates the user's activity status in Discord. The `Lobby` prefab allows the player to create and leave a lobby which will update their Rich Presence and allow their friends to request to join their lobby through the Discord client. Each prefab is easy to drop into your scene and customize as needed.
 
 ## Resources
 
@@ -106,6 +106,9 @@ This sample creates easy to use prefabs that can be used to build out parts of t
 ### Design Resources
 - [Friends List Designs](https://www.figma.com/community/file/1512487996808869592/the-social-sdk-friend-list-starter-pack) - UI/UX reference used in this sample
 - [Discord Brand Design Guidelines](https://discord.com/branding) - Official branding resources
+
+### Videos
+- [How to add direct messaging to your game with the Social SDK](https://youtu.be/SqlkZ2KG4E0?si=mfIfBbNkCV9wrMSH)
 
 ## Contributing
 
