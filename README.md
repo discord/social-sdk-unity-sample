@@ -11,14 +11,22 @@ This sample showcases many Discord Social SDK features in a complete, interactiv
 - **Friends List** - Display and interact with Discord friends lists
 - **Rich Presence** - Dynamic Discord activity cards with lobby and invite integration
 - **Game Lobbies** - Create, join, and manage multiplayer lobbies
+- **Game Invitations** - Send deep-link invites to friends for instant lobby joining
 
 Planned features that haven't been implemented yet:
-- **Friend Management** - Send friend requests and remove friends
-- **Game Invitations** - Send deep-link invites to friends for instant lobby joining
 - **Direct Messaging** - In-game messaging
 - **Linked Channels** - Connect game chat to Discord server channels
 - **User Profiles** - Fetch and display Discord user information
-- **Provisional Accounts** - Support for users without Discord accounts
+
+## Questions This Sample Answers
+How do I create friends list for my game and keep it updated and sorted?
+> Using the Discord Social SDK you can fetch a player's friends list and display it in your game. This sample demonstrates how to fetch the friends list, display each friend's username, status, and avatar, and keep it updated in real-time. It also shows how to sort friends by their online status and username.
+
+How do I handle performance with a friends list in my game?
+> By sorting friends client-side and only updating the UI when there are changes, you can create a responsive friends list. This sample keeps the friends list updated in real-time by only updating the UI for an individual player when their info changes and then sorts them into the proper position in the UI. It doesn't create or destroy any UI elements once they've been initialized.
+
+How can I make my game more discoverable? How can I help my game go viral?
+> Using Rich Presence makes it easy for friends to see what you're playing and join in directly from Discord. Allowing invites through your game's UI lets players invite their friends through the game or Discord. With Discord being the social platform for gamers, integrating the Discord Social SDK makes it easy for players to connect and play together, increasing your game's visibility and player base.
 
 ## Quick Start
 
