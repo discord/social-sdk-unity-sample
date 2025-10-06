@@ -19,6 +19,9 @@ Planned features that haven't been implemented yet:
 - **User Profiles** - Fetch and display Discord user information
 
 ## Questions This Sample Answers
+How do I connect my players to each other and bring new players to my game?
+> By creating an in-game friends list you can help players connect with each other while playing. Using the Discord Social SDK to do this allows you to leverage a player's existing Discord friends as well as make new friends in game. Creating a friends list for your game is the main social building block that allows you to add messaging and invites which keep players in your game and help bring in new players through their friends.
+
 How do I create friends list for my game and keep it updated and sorted?
 > Using the Discord Social SDK you can [fetch a player's friends list and display it in your game](https://github.com/discord/social-sdk-unity-sample/blob/main/DiscordSocialSDKUnitySample/Assets/Scripts/FriendsList.cs). This sample demonstrates how to fetch the friends list, display each friend's username, status, and avatar, and keep it updated in real-time. It also shows how to sort friends by their online status and username.
 
