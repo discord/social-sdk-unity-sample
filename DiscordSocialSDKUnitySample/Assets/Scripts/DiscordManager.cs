@@ -31,6 +31,21 @@ public class DiscordManager : MonoBehaviour
     public delegate void RelationshipsUpdatedHandler(ulong userId);
     public event RelationshipsUpdatedHandler OnDiscordRelationshipsUpdated;
 
+    public delegate void LobbyCreatedHandler(ulong lobbyId);
+    public event LobbyCreatedHandler OnDiscordLobbyCreated;
+
+    public delegate void LobbyDeletedHandler(ulong lobbyId);
+    public event LobbyDeletedHandler OnDiscordLobbyDeleted;
+
+    public delegate void LobbyMemberAddedHandler(ulong lobbyId, ulong userId);
+    public event LobbyMemberAddedHandler OnDiscordLobbyMemberAdded;
+
+    public delegate void LobbyMemberRemovedHandler(ulong lobbyId, ulong userId);
+    public event LobbyMemberRemovedHandler OnDiscordLobbyMemberRemoved;
+
+    public delegate void SetActivityInviteCreatedHandler(ActivityInvite invite);
+    public event SetActivityInviteCreatedHandler OnDiscordSetActivityInviteCreated;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -47,6 +62,11 @@ public class DiscordManager : MonoBehaviour
         client.AddLogCallback(OnLog, LoggingSeverity.Error);
         client.SetStatusChangedCallback(OnStatusChanged);
         client.SetRelationshipGroupsUpdatedCallback(OnRelationshipsUpdated);
+        client.SetLobbyCreatedCallback(OnLobbyCreated);
+        client.SetLobbyDeletedCallback(OnLobbyDeleted);
+        client.SetLobbyMemberAddedCallback(OnLobbyMemberAdded);
+        client.SetLobbyMemberRemovedCallback(OnLobbyMemberRemoved);
+        client.SetActivityInviteCreatedCallback(OnSetActivityInviteCreated);
     }
 
     void Start()
@@ -95,6 +115,46 @@ public class DiscordManager : MonoBehaviour
         if (OnDiscordRelationshipsUpdated != null)
         {
             OnDiscordRelationshipsUpdated.Invoke(userId);
+        }
+    }
+
+    private void OnLobbyCreated(ulong lobbyId)
+    {
+        if (OnDiscordLobbyCreated != null)
+        {
+            OnDiscordLobbyCreated.Invoke(lobbyId);
+        }
+    }
+
+    private void OnLobbyDeleted(ulong lobbyId)
+    {
+        if (OnDiscordLobbyDeleted != null)
+        {
+            OnDiscordLobbyDeleted.Invoke(lobbyId);
+        }
+    }
+
+    private void OnLobbyMemberAdded(ulong lobbyId, ulong userId)
+    {
+        if (OnDiscordLobbyMemberAdded != null)
+        {
+            OnDiscordLobbyMemberAdded.Invoke(lobbyId, userId);
+        }
+    }
+
+    private void OnLobbyMemberRemoved(ulong lobbyId, ulong userId)
+    {
+        if (OnDiscordLobbyMemberRemoved != null)
+        {
+            OnDiscordLobbyMemberRemoved.Invoke(lobbyId, userId);
+        }
+    }
+
+    private void OnSetActivityInviteCreated(ActivityInvite invite)
+    {
+        if (OnDiscordSetActivityInviteCreated != null)
+        {
+            OnDiscordSetActivityInviteCreated.Invoke(invite);
         }
     }
 

@@ -16,11 +16,11 @@ public class Lobby : MonoBehaviour
     [SerializeField] private Button createLobbyButton;
     [SerializeField] private Button leaveLobbyButton;
     [SerializeField] private int maxLobbySize = 4;
-    private string lobbySecret;
+    private string lobbySecret = string.Empty;
+    private ulong currentLobby = 0;
 
 #if DISCORD_SOCIAL_SDK_EXISTS
     private Client client;
-    private ulong currentLobby;
     private RichPresence richPresence;
 
     void Start()
@@ -37,6 +37,24 @@ public class Lobby : MonoBehaviour
         leaveLobbyButton.gameObject.SetActive(false);
     }
 
+    void OnDestroy()
+    {
+        if(client != null)
+        {
+            client.LeaveLobby(currentLobby, (ClientResult result) => { });
+        }
+    }
+
+    public bool IsInLobby()
+    {
+        return lobbySecret != string.Empty;
+    }
+
+    public ulong GetCurrentLobbyId()
+    {
+        return currentLobby;
+    }
+
     private void OnStatusChanged(Client.Status status, Client.Error error, int errorCode)
     {
         if (status == Client.Status.Ready)
@@ -45,7 +63,7 @@ public class Lobby : MonoBehaviour
         }
     }
 
-    public void CreateLobby()
+    private void CreateLobby()
     {
         StopAllCoroutines();
         createLobbyButton.gameObject.SetActive(false);
@@ -55,14 +73,7 @@ public class Lobby : MonoBehaviour
 
     public void JoinLobby(string lobbySecret)
     {
-        StopAllCoroutines();
         createLobbyButton.gameObject.SetActive(false);
-        StartCoroutine(JoinLobbyCoroutine(lobbySecret));
-    }
-
-    private IEnumerator JoinLobbyCoroutine(string lobbySecret)
-    {
-        yield return new WaitUntil(() => { return client.GetStatus() == Client.Status.Ready; });
         this.lobbySecret = lobbySecret;
         client.CreateOrJoinLobby(this.lobbySecret, OnCreateOrJoinLobby);
     }
@@ -90,7 +101,7 @@ public class Lobby : MonoBehaviour
         }
     }
 
-    public void LeaveLobby()
+    private void LeaveLobby()
     {
         leaveLobbyButton.gameObject.SetActive(false);
 
@@ -101,6 +112,8 @@ public class Lobby : MonoBehaviour
     {
         if (clientResult.Successful())
         {
+            Debug.Log($"Successfully left lobby {currentLobby}");
+
             currentLobby = 0;
             lobbySecret = string.Empty;
 
@@ -110,8 +123,6 @@ public class Lobby : MonoBehaviour
             {
                 richPresence.SetDefaultRichPresence();
             }
-
-            Debug.Log($"Successfully left lobby {currentLobby}");
         }
         else
         {
