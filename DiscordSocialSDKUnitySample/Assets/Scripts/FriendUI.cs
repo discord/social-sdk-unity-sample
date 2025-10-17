@@ -45,6 +45,11 @@ public class FriendUI : MonoBehaviour
         UpdateStatus();
     }
 
+    public ulong GetUserId()
+    {
+        return relationshipHandle.Id();
+    }
+
     private void UpdateStatus()
     {
         status.text = relationshipHandle.User().Status().ToString();
