@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+
 #if DISCORD_SOCIAL_SDK_EXISTS
 using Discord.Sdk;
 #endif
@@ -16,19 +17,6 @@ public class Invite : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private Lobby lobby;
 
-#if DISCORD_SOCIAL_SDK_EXISTS
-    private Client client;
-
-    void Start()
-    {
-        inviteButton.onClick.AddListener(InviteFriend);
-        inviteButton.gameObject.SetActive(false);
-
-        lobby = FindFirstObjectByType<Lobby>();
-
-        client = DiscordManager.Instance.GetClient();
-    }
-
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (lobby != null && lobby.IsInLobby())
@@ -40,6 +28,19 @@ public class Invite : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnPointerExit(PointerEventData eventData)
     {
         inviteButton.gameObject.SetActive(false);
+    }
+
+#if DISCORD_SOCIAL_SDK_EXISTS
+    private Client client;
+
+    void Start()
+    {
+        inviteButton.onClick.AddListener(InviteFriend);
+        inviteButton.gameObject.SetActive(false);
+
+        lobby = FindFirstObjectByType<Lobby>();
+
+        client = DiscordManager.Instance.GetClient();
     }
 
     private void InviteFriend()
