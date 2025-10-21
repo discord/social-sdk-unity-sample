@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: b6ddafc69878648a88d39ef336758c2d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3835383307455135255
+    second: bowlhair_hamering_strip23_0
+  - first:
+      213: 5889739447651901703
+    second: bowlhair_hamering_strip23_1
+  - first:
+      213: -8047155370171430655
+    second: bowlhair_hamering_strip23_2
+  - first:
+      213: -6849958715109510235
+    second: bowlhair_hamering_strip23_3
+  - first:
+      213: -4130316364795583498
+    second: bowlhair_hamering_strip23_4
+  - first:
+      213: 4553049102916704335
+    second: bowlhair_hamering_strip23_5
+  - first:
+      213: -2542904905172452490
+    second: bowlhair_hamering_strip23_6
+  - first:
+      213: -9202884646991098373
+    second: bowlhair_hamering_strip23_7
+  - first:
+      213: -3329245261483951635
+    second: bowlhair_hamering_strip23_8
+  - first:
+      213: 4098309583069581889
+    second: bowlhair_hamering_strip23_9
+  - first:
+      213: -2163539139680665802
+    second: bowlhair_hamering_strip23_10
+  - first:
+      213: 294883193781186640
+    second: bowlhair_hamering_strip23_11
+  - first:
+      213: -2264195263523668263
+    second: bowlhair_hamering_strip23_12
+  - first:
+      213: -6271703694562471059
+    second: bowlhair_hamering_strip23_13
+  - first:
+      213: -3059002670410993239
+    second: bowlhair_hamering_strip23_14
+  - first:
+      213: -3928610993253632834
+    second: bowlhair_hamering_strip23_15
+  - first:
+      213: 6638671096653025368
+    second: bowlhair_hamering_strip23_16
+  - first:
+      213: -3228893825606476317
+    second: bowlhair_hamering_strip23_17
+  - first:
+      213: 9174810009132399066
+    second: bowlhair_hamering_strip23_18
+  - first:
+      213: -6026675946052410049
+    second: bowlhair_hamering_strip23_19
+  - first:
+      213: -2092081984593057838
+    second: bowlhair_hamering_strip23_20
+  - first:
+      213: -2197658975674594245
+    second: bowlhair_hamering_strip23_21
+  - first:
+      213: 4573407522751937635
+    second: bowlhair_hamering_strip23_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_0
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71e73522cc40a3530800000000000000
+      internalID: 3835383307455135255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_1
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 701a5ec82de8cb150800000000000000
+      internalID: 5889739447651901703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_2
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1090e8493d2c25090800000000000000
+      internalID: -8047155370171430655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_3
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a37ecb57de00f0a0800000000000000
+      internalID: -6849958715109510235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_4
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f3606a462b2ea6c0800000000000000
+      internalID: -4130316364795583498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_5
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f48d248390eaf2f30800000000000000
+      internalID: 4553049102916704335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_6
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67bf89d2679c5bcd0800000000000000
+      internalID: -2542904905172452490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_7
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfd033b2c29c84080800000000000000
+      internalID: -9202884646991098373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_8
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de9b813e2152cc1d0800000000000000
+      internalID: -3329245261483951635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_9
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 142117e1ade10e830800000000000000
+      internalID: 4098309583069581889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_10
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63ffda98d9099f1e0800000000000000
+      internalID: -2163539139680665802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_11
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0507f8fc3b2a71400800000000000000
+      internalID: 294883193781186640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_12
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9debc8f6766f390e0800000000000000
+      internalID: -2264195263523668263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_13
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d63591df7be66f8a0800000000000000
+      internalID: -6271703694562471059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_14
+      rect:
+        serializedVersion: 2
+        x: 1382
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a17e2f474d3c85d0800000000000000
+      internalID: -3059002670410993239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_15
+      rect:
+        serializedVersion: 2
+        x: 1479
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb43c66cd15ca79c0800000000000000
+      internalID: -3928610993253632834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_16
+      rect:
+        serializedVersion: 2
+        x: 1576
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85018a0703c412c50800000000000000
+      internalID: 6638671096653025368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_17
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ed164b4c2aa033d0800000000000000
+      internalID: -3228893825606476317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_18
+      rect:
+        serializedVersion: 2
+        x: 1771
+        y: 30
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad9f804d719735f70800000000000000
+      internalID: 9174810009132399066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_19
+      rect:
+        serializedVersion: 2
+        x: 1866
+        y: 31
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f35a7236822fc5ca0800000000000000
+      internalID: -6026675946052410049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_20
+      rect:
+        serializedVersion: 2
+        x: 1962
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d72653f48e67f2e0800000000000000
+      internalID: -2092081984593057838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_21
+      rect:
+        serializedVersion: 2
+        x: 2058
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3c87792ec85081e0800000000000000
+      internalID: -2197658975674594245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowlhair_hamering_strip23_22
+      rect:
+        serializedVersion: 2
+        x: 2153
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36c7ab639e1087f30800000000000000
+      internalID: 4573407522751937635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      bowlhair_hamering_strip23_0: 3835383307455135255
+      bowlhair_hamering_strip23_1: 5889739447651901703
+      bowlhair_hamering_strip23_10: -2163539139680665802
+      bowlhair_hamering_strip23_11: 294883193781186640
+      bowlhair_hamering_strip23_12: -2264195263523668263
+      bowlhair_hamering_strip23_13: -6271703694562471059
+      bowlhair_hamering_strip23_14: -3059002670410993239
+      bowlhair_hamering_strip23_15: -3928610993253632834
+      bowlhair_hamering_strip23_16: 6638671096653025368
+      bowlhair_hamering_strip23_17: -3228893825606476317
+      bowlhair_hamering_strip23_18: 9174810009132399066
+      bowlhair_hamering_strip23_19: -6026675946052410049
+      bowlhair_hamering_strip23_2: -8047155370171430655
+      bowlhair_hamering_strip23_20: -2092081984593057838
+      bowlhair_hamering_strip23_21: -2197658975674594245
+      bowlhair_hamering_strip23_22: 4573407522751937635
+      bowlhair_hamering_strip23_3: -6849958715109510235
+      bowlhair_hamering_strip23_4: -4130316364795583498
+      bowlhair_hamering_strip23_5: 4553049102916704335
+      bowlhair_hamering_strip23_6: -2542904905172452490
+      bowlhair_hamering_strip23_7: -9202884646991098373
+      bowlhair_hamering_strip23_8: -3329245261483951635
+      bowlhair_hamering_strip23_9: 4098309583069581889
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

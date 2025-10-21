@@ -46,6 +46,8 @@ public class DiscordManager : MonoBehaviour
     public delegate void SetActivityInviteCreatedHandler(ActivityInvite invite);
     public event SetActivityInviteCreatedHandler OnDiscordSetActivityInviteCreated;
 
+    public SettingsUI settingsUI;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -76,7 +78,7 @@ public class DiscordManager : MonoBehaviour
 
         if (PlayerPrefs.HasKey("RefreshToken"))
         {
-            client.RefreshToken(discordSocialSDKConfig.ApplicationId, PlayerPrefs.GetString("RefreshToken"), OnGetToken);
+            //client.RefreshToken(discordSocialSDKConfig.ApplicationId, PlayerPrefs.GetString("RefreshToken"), OnGetToken);
         }
     }
 
@@ -187,6 +189,7 @@ public class DiscordManager : MonoBehaviour
         if (!result.Successful())
         {
             Debug.Log($"Authorization result: [{result.Error()}]");
+            settingsUI.AccountLinkCancelled();
             return;
         }
         GetTokenFromCode(code, redirectUri);

@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: 59ab96bd16b7a463b97b812efaf9b877
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3623223363008308318
+    second: spikeyhair_hamering_strip23_0
+  - first:
+      213: -8463518135138604343
+    second: spikeyhair_hamering_strip23_1
+  - first:
+      213: 6399738651203779713
+    second: spikeyhair_hamering_strip23_2
+  - first:
+      213: -2270323022429392189
+    second: spikeyhair_hamering_strip23_3
+  - first:
+      213: -4980891610414853231
+    second: spikeyhair_hamering_strip23_4
+  - first:
+      213: -2594569348007685952
+    second: spikeyhair_hamering_strip23_5
+  - first:
+      213: 5008251505889931814
+    second: spikeyhair_hamering_strip23_6
+  - first:
+      213: -2317786279289734813
+    second: spikeyhair_hamering_strip23_7
+  - first:
+      213: 1025150263164856050
+    second: spikeyhair_hamering_strip23_8
+  - first:
+      213: -1302674229067555044
+    second: spikeyhair_hamering_strip23_9
+  - first:
+      213: -1804491481387321783
+    second: spikeyhair_hamering_strip23_10
+  - first:
+      213: -9023083447259801736
+    second: spikeyhair_hamering_strip23_11
+  - first:
+      213: 7965559742546347735
+    second: spikeyhair_hamering_strip23_12
+  - first:
+      213: 909711840009482661
+    second: spikeyhair_hamering_strip23_13
+  - first:
+      213: -251968361456182105
+    second: spikeyhair_hamering_strip23_14
+  - first:
+      213: -6703400402432833229
+    second: spikeyhair_hamering_strip23_15
+  - first:
+      213: -6616497346080252948
+    second: spikeyhair_hamering_strip23_16
+  - first:
+      213: -3166377053571157974
+    second: spikeyhair_hamering_strip23_17
+  - first:
+      213: -1743713137044383637
+    second: spikeyhair_hamering_strip23_18
+  - first:
+      213: 9065896447105436262
+    second: spikeyhair_hamering_strip23_19
+  - first:
+      213: -6662153959108290368
+    second: spikeyhair_hamering_strip23_20
+  - first:
+      213: -6277558914149008685
+    second: spikeyhair_hamering_strip23_21
+  - first:
+      213: 1463148294016619762
+    second: spikeyhair_hamering_strip23_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_0
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ab5ef94c89b7bdc0800000000000000
+      internalID: -3623223363008308318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_1
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9caacf4091b8b8a80800000000000000
+      internalID: -8463518135138604343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_2
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18cb650656070d850800000000000000
+      internalID: 6399738651203779713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_3
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c274b26d313e70e0800000000000000
+      internalID: -2270323022429392189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_4
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 193df70687150eab0800000000000000
+      internalID: -4980891610414853231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_5
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c092e2bcec3efbd0800000000000000
+      internalID: -2594569348007685952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_6
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6227262b532e08540800000000000000
+      internalID: 5008251505889931814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_7
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36939adb8a195dfd0800000000000000
+      internalID: -2317786279289734813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_8
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f6e65d9bb01a3e00800000000000000
+      internalID: 1025150263164856050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_9
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1f5f56c0b8fbede0800000000000000
+      internalID: -1302674229067555044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_10
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 946b0bbee8825f6e0800000000000000
+      internalID: -1804491481387321783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_11
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8775f5b396197c280800000000000000
+      internalID: -9023083447259801736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_12
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d680abe16a5b8e60800000000000000
+      internalID: 7965559742546347735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_13
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a17bbf3912ff9c00800000000000000
+      internalID: 909711840009482661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_14
+      rect:
+        serializedVersion: 2
+        x: 1382
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ac54c83c14d08cf0800000000000000
+      internalID: -251968361456182105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_15
+      rect:
+        serializedVersion: 2
+        x: 1479
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 339c7c1a9dcb8f2a0800000000000000
+      internalID: -6703400402432833229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_16
+      rect:
+        serializedVersion: 2
+        x: 1576
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceb529d28ba7d24a0800000000000000
+      internalID: -6616497346080252948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_17
+      rect:
+        serializedVersion: 2
+        x: 1674
+        y: 31
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2071f098d4ce04d0800000000000000
+      internalID: -3166377053571157974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_18
+      rect:
+        serializedVersion: 2
+        x: 1771
+        y: 30
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b689944f3261dc7e0800000000000000
+      internalID: -1743713137044383637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_19
+      rect:
+        serializedVersion: 2
+        x: 1866
+        y: 31
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66a023419c880dd70800000000000000
+      internalID: 9065896447105436262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_20
+      rect:
+        serializedVersion: 2
+        x: 1962
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c8536495464b83a0800000000000000
+      internalID: -6662153959108290368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_21
+      rect:
+        serializedVersion: 2
+        x: 2058
+        y: 32
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dabf817d61a1e8a0800000000000000
+      internalID: -6277558914149008685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spikeyhair_hamering_strip23_22
+      rect:
+        serializedVersion: 2
+        x: 2153
+        y: 31
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f4549e0f952e4410800000000000000
+      internalID: 1463148294016619762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      spikeyhair_hamering_strip23_0: -3623223363008308318
+      spikeyhair_hamering_strip23_1: -8463518135138604343
+      spikeyhair_hamering_strip23_10: -1804491481387321783
+      spikeyhair_hamering_strip23_11: -9023083447259801736
+      spikeyhair_hamering_strip23_12: 7965559742546347735
+      spikeyhair_hamering_strip23_13: 909711840009482661
+      spikeyhair_hamering_strip23_14: -251968361456182105
+      spikeyhair_hamering_strip23_15: -6703400402432833229
+      spikeyhair_hamering_strip23_16: -6616497346080252948
+      spikeyhair_hamering_strip23_17: -3166377053571157974
+      spikeyhair_hamering_strip23_18: -1743713137044383637
+      spikeyhair_hamering_strip23_19: 9065896447105436262
+      spikeyhair_hamering_strip23_2: 6399738651203779713
+      spikeyhair_hamering_strip23_20: -6662153959108290368
+      spikeyhair_hamering_strip23_21: -6277558914149008685
+      spikeyhair_hamering_strip23_22: 1463148294016619762
+      spikeyhair_hamering_strip23_3: -2270323022429392189
+      spikeyhair_hamering_strip23_4: -4980891610414853231
+      spikeyhair_hamering_strip23_5: -2594569348007685952
+      spikeyhair_hamering_strip23_6: 5008251505889931814
+      spikeyhair_hamering_strip23_7: -2317786279289734813
+      spikeyhair_hamering_strip23_8: 1025150263164856050
+      spikeyhair_hamering_strip23_9: -1302674229067555044
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

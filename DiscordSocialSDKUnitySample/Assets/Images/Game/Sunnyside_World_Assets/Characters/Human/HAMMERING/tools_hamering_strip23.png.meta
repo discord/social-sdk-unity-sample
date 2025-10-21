@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: 87e0a2f36d4ad4777b453ce99c7bc877
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 632620252322877766
+    second: tools_hamering_strip23_0
+  - first:
+      213: 2902128249016572905
+    second: tools_hamering_strip23_1
+  - first:
+      213: 4640327959587133578
+    second: tools_hamering_strip23_2
+  - first:
+      213: -2220873736785378712
+    second: tools_hamering_strip23_3
+  - first:
+      213: -5897697971657607785
+    second: tools_hamering_strip23_4
+  - first:
+      213: 7611692523700434886
+    second: tools_hamering_strip23_5
+  - first:
+      213: -2782878174426003373
+    second: tools_hamering_strip23_6
+  - first:
+      213: 2461693940854305957
+    second: tools_hamering_strip23_7
+  - first:
+      213: 782630567365399599
+    second: tools_hamering_strip23_8
+  - first:
+      213: 6733091918558652142
+    second: tools_hamering_strip23_9
+  - first:
+      213: -557387383235600915
+    second: tools_hamering_strip23_10
+  - first:
+      213: 2006958401616450562
+    second: tools_hamering_strip23_11
+  - first:
+      213: 1216691698799351974
+    second: tools_hamering_strip23_12
+  - first:
+      213: -6083963153902632875
+    second: tools_hamering_strip23_13
+  - first:
+      213: 2265751752530900579
+    second: tools_hamering_strip23_14
+  - first:
+      213: -104295567224200042
+    second: tools_hamering_strip23_15
+  - first:
+      213: 822797154703478922
+    second: tools_hamering_strip23_16
+  - first:
+      213: -2462261607458719904
+    second: tools_hamering_strip23_17
+  - first:
+      213: -4720316005383290921
+    second: tools_hamering_strip23_18
+  - first:
+      213: -1104976168748259542
+    second: tools_hamering_strip23_19
+  - first:
+      213: -2600931836655185999
+    second: tools_hamering_strip23_20
+  - first:
+      213: -4301166774531857436
+    second: tools_hamering_strip23_21
+  - first:
+      213: -8320566787433608018
+    second: tools_hamering_strip23_22
+  - first:
+      213: 6443919038189497604
+    second: tools_hamering_strip23_23
+  - first:
+      213: 4264926010548087772
+    second: tools_hamering_strip23_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tools_hamering_strip23_0
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 24
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6415c6984c487c800800000000000000
+      internalID: 632620252322877766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_1
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 24
+        width: 20
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9eb524f244e664820800000000000000
+      internalID: 2902128249016572905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_2
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 24
+        width: 21
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a88118891b1c56040800000000000000
+      internalID: 4640327959587133578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_3
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 24
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 862c9e36a1fdd21e0800000000000000
+      internalID: -2220873736785378712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_4
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 24
+        width: 24
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7957ece21fa272ea0800000000000000
+      internalID: -5897697971657607785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_5
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 24
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c739a6950a22a960800000000000000
+      internalID: 7611692523700434886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_6
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 24
+        width: 23
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35886207b0b3169d0800000000000000
+      internalID: -2782878174426003373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_7
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 24
+        width: 24
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a43a5ab891b92220800000000000000
+      internalID: 2461693940854305957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_8
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 24
+        width: 24
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f245d2eba567cda00800000000000000
+      internalID: 782630567365399599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_9
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 24
+        width: 23
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee6edbd2d6fb07d50800000000000000
+      internalID: 6733091918558652142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_10
+      rect:
+        serializedVersion: 2
+        x: 983
+        y: 24
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ded15fbc023c348f0800000000000000
+      internalID: -557387383235600915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_11
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 24
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 204955f68062adb10800000000000000
+      internalID: 2006958401616450562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_12
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 24
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a81a1c57ae82e010800000000000000
+      internalID: 1216691698799351974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_13
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 24
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5508119eebb619ba0800000000000000
+      internalID: -6083963153902632875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_14
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 24
+        width: 21
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 366b2d6e631917f10800000000000000
+      internalID: 2265751752530900579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_15
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 27
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69424f3fbb77d8ef0800000000000000
+      internalID: -104295567224200042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_16
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 28
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a809d4027a92b6b00800000000000000
+      internalID: 822797154703478922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_17
+      rect:
+        serializedVersion: 2
+        x: 1682
+        y: 25
+        width: 27
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06737571d1a44ddd0800000000000000
+      internalID: -2462261607458719904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_18
+      rect:
+        serializedVersion: 2
+        x: 1784
+        y: 23
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dfb9873a911e7eb0800000000000000
+      internalID: -4720316005383290921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_19
+      rect:
+        serializedVersion: 2
+        x: 1880
+        y: 23
+        width: 32
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a27ec7867065aa0f0800000000000000
+      internalID: -1104976168748259542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_20
+      rect:
+        serializedVersion: 2
+        x: 1976
+        y: 24
+        width: 33
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bfc92f5642a7ebd0800000000000000
+      internalID: -2600931836655185999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_21
+      rect:
+        serializedVersion: 2
+        x: 2071
+        y: 24
+        width: 25
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e3e05c6b9f2f44c0800000000000000
+      internalID: -4301166774531857436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_22
+      rect:
+        serializedVersion: 2
+        x: 2097
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eac4b115798678c80800000000000000
+      internalID: -8320566787433608018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_23
+      rect:
+        serializedVersion: 2
+        x: 2166
+        y: 24
+        width: 27
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40d69a059366d6950800000000000000
+      internalID: 6443919038189497604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_hamering_strip23_24
+      rect:
+        serializedVersion: 2
+        x: 2194
+        y: 24
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdbea0c2c9f003b30800000000000000
+      internalID: 4264926010548087772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tools_hamering_strip23_0: 632620252322877766
+      tools_hamering_strip23_1: 2902128249016572905
+      tools_hamering_strip23_10: -557387383235600915
+      tools_hamering_strip23_11: 2006958401616450562
+      tools_hamering_strip23_12: 1216691698799351974
+      tools_hamering_strip23_13: -6083963153902632875
+      tools_hamering_strip23_14: 2265751752530900579
+      tools_hamering_strip23_15: -104295567224200042
+      tools_hamering_strip23_16: 822797154703478922
+      tools_hamering_strip23_17: -2462261607458719904
+      tools_hamering_strip23_18: -4720316005383290921
+      tools_hamering_strip23_19: -1104976168748259542
+      tools_hamering_strip23_2: 4640327959587133578
+      tools_hamering_strip23_20: -2600931836655185999
+      tools_hamering_strip23_21: -4301166774531857436
+      tools_hamering_strip23_22: -8320566787433608018
+      tools_hamering_strip23_23: 6443919038189497604
+      tools_hamering_strip23_24: 4264926010548087772
+      tools_hamering_strip23_3: -2220873736785378712
+      tools_hamering_strip23_4: -5897697971657607785
+      tools_hamering_strip23_5: 7611692523700434886
+      tools_hamering_strip23_6: -2782878174426003373
+      tools_hamering_strip23_7: 2461693940854305957
+      tools_hamering_strip23_8: 782630567365399599
+      tools_hamering_strip23_9: 6733091918558652142
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

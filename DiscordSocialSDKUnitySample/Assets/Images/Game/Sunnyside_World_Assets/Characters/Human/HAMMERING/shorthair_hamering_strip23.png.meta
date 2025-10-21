@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: 712756597f69c4054b0640604a4f2b9a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7653399671086049244
+    second: shorthair_hamering_strip23_0
+  - first:
+      213: -6926062171891764158
+    second: shorthair_hamering_strip23_1
+  - first:
+      213: -2250209446203772441
+    second: shorthair_hamering_strip23_2
+  - first:
+      213: -6069842161311765970
+    second: shorthair_hamering_strip23_3
+  - first:
+      213: -176443672690057839
+    second: shorthair_hamering_strip23_4
+  - first:
+      213: -1544199373469505592
+    second: shorthair_hamering_strip23_5
+  - first:
+      213: 2359248046367388186
+    second: shorthair_hamering_strip23_6
+  - first:
+      213: 5360632734958678512
+    second: shorthair_hamering_strip23_7
+  - first:
+      213: 80237465562998741
+    second: shorthair_hamering_strip23_8
+  - first:
+      213: 1622518696047703261
+    second: shorthair_hamering_strip23_9
+  - first:
+      213: -7548912325106812509
+    second: shorthair_hamering_strip23_10
+  - first:
+      213: 697461275376247357
+    second: shorthair_hamering_strip23_11
+  - first:
+      213: 8931870495451912331
+    second: shorthair_hamering_strip23_12
+  - first:
+      213: 1251265701585185447
+    second: shorthair_hamering_strip23_13
+  - first:
+      213: -4638125046172935277
+    second: shorthair_hamering_strip23_14
+  - first:
+      213: -4013335943804682844
+    second: shorthair_hamering_strip23_15
+  - first:
+      213: 8665164699615205374
+    second: shorthair_hamering_strip23_16
+  - first:
+      213: 2242782426948907189
+    second: shorthair_hamering_strip23_17
+  - first:
+      213: -3471385695881816297
+    second: shorthair_hamering_strip23_18
+  - first:
+      213: -523397700451815602
+    second: shorthair_hamering_strip23_19
+  - first:
+      213: -3199227314570749483
+    second: shorthair_hamering_strip23_20
+  - first:
+      213: -2306848969157612093
+    second: shorthair_hamering_strip23_21
+  - first:
+      213: 6895372931355977409
+    second: shorthair_hamering_strip23_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_0
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42813d07c89a9c590800000000000000
+      internalID: -7653399671086049244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_1
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 244fe18862fa1ef90800000000000000
+      internalID: -6926062171891764158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_2
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e1bbc84e66a5c0e0800000000000000
+      internalID: -2250209446203772441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_3
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2aa254b6b693cba0800000000000000
+      internalID: -6069842161311765970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_4
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19d917e1a652d8df0800000000000000
+      internalID: -176443672690057839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_5
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c728f1f9d6e19ae0800000000000000
+      internalID: -1544199373469505592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_6
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1233cc299bbdb020800000000000000
+      internalID: 2359248046367388186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_7
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f1fa82121bc46a40800000000000000
+      internalID: 5360632734958678512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_8
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d76f80cc8f0d1100800000000000000
+      internalID: 80237465562998741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_9
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd47a575828548610800000000000000
+      internalID: 1622518696047703261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_10
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a9b0757c30ec3790800000000000000
+      internalID: -7548912325106812509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_11
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d32646ba551eda900800000000000000
+      internalID: 697461275376247357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_12
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b88143d74e064fb70800000000000000
+      internalID: 8931870495451912331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_13
+      rect:
+        serializedVersion: 2
+        x: 1287
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7aa6d9ea6836d5110800000000000000
+      internalID: 1251265701585185447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_14
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39b150728d112afb0800000000000000
+      internalID: -4638125046172935277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_15
+      rect:
+        serializedVersion: 2
+        x: 1480
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4adf6310934cd48c0800000000000000
+      internalID: -4013335943804682844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_16
+      rect:
+        serializedVersion: 2
+        x: 1577
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef791d06269d04870800000000000000
+      internalID: 8665164699615205374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_17
+      rect:
+        serializedVersion: 2
+        x: 1676
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b037ca0cb6ff1f10800000000000000
+      internalID: 2242782426948907189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_18
+      rect:
+        serializedVersion: 2
+        x: 1772
+        y: 31
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 717979e0a1923dfc0800000000000000
+      internalID: -3471385695881816297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_19
+      rect:
+        serializedVersion: 2
+        x: 1867
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4f205480948cb8f0800000000000000
+      internalID: -523397700451815602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_20
+      rect:
+        serializedVersion: 2
+        x: 1963
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d9984725bf0a93d0800000000000000
+      internalID: -3199227314570749483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_21
+      rect:
+        serializedVersion: 2
+        x: 2059
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cd62e2b51d6cffd0800000000000000
+      internalID: -2306848969157612093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shorthair_hamering_strip23_22
+      rect:
+        serializedVersion: 2
+        x: 2154
+        y: 32
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c62157d52941bf50800000000000000
+      internalID: 6895372931355977409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      shorthair_hamering_strip23_0: -7653399671086049244
+      shorthair_hamering_strip23_1: -6926062171891764158
+      shorthair_hamering_strip23_10: -7548912325106812509
+      shorthair_hamering_strip23_11: 697461275376247357
+      shorthair_hamering_strip23_12: 8931870495451912331
+      shorthair_hamering_strip23_13: 1251265701585185447
+      shorthair_hamering_strip23_14: -4638125046172935277
+      shorthair_hamering_strip23_15: -4013335943804682844
+      shorthair_hamering_strip23_16: 8665164699615205374
+      shorthair_hamering_strip23_17: 2242782426948907189
+      shorthair_hamering_strip23_18: -3471385695881816297
+      shorthair_hamering_strip23_19: -523397700451815602
+      shorthair_hamering_strip23_2: -2250209446203772441
+      shorthair_hamering_strip23_20: -3199227314570749483
+      shorthair_hamering_strip23_21: -2306848969157612093
+      shorthair_hamering_strip23_22: 6895372931355977409
+      shorthair_hamering_strip23_3: -6069842161311765970
+      shorthair_hamering_strip23_4: -176443672690057839
+      shorthair_hamering_strip23_5: -1544199373469505592
+      shorthair_hamering_strip23_6: 2359248046367388186
+      shorthair_hamering_strip23_7: 5360632734958678512
+      shorthair_hamering_strip23_8: 80237465562998741
+      shorthair_hamering_strip23_9: 1622518696047703261
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

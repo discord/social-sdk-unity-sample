@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: 0dacd1547d4b542519ff9a43aa60d1f2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4085816419786595981
+    second: longhair_hamering_strip23_0
+  - first:
+      213: -8958367019396770307
+    second: longhair_hamering_strip23_1
+  - first:
+      213: -4791172175604102415
+    second: longhair_hamering_strip23_2
+  - first:
+      213: -8717781113899495973
+    second: longhair_hamering_strip23_3
+  - first:
+      213: -1447982323708609276
+    second: longhair_hamering_strip23_4
+  - first:
+      213: 6616015500597512494
+    second: longhair_hamering_strip23_5
+  - first:
+      213: -5178433425626253990
+    second: longhair_hamering_strip23_6
+  - first:
+      213: 8624632025027009459
+    second: longhair_hamering_strip23_7
+  - first:
+      213: -4353025604820621401
+    second: longhair_hamering_strip23_8
+  - first:
+      213: -3437012619777832600
+    second: longhair_hamering_strip23_9
+  - first:
+      213: 2638965257275895709
+    second: longhair_hamering_strip23_10
+  - first:
+      213: 2454861436759930368
+    second: longhair_hamering_strip23_11
+  - first:
+      213: -492965642583703582
+    second: longhair_hamering_strip23_12
+  - first:
+      213: 2121757021125201357
+    second: longhair_hamering_strip23_13
+  - first:
+      213: 8830542523264535441
+    second: longhair_hamering_strip23_14
+  - first:
+      213: -4890372242842036572
+    second: longhair_hamering_strip23_15
+  - first:
+      213: -7481150945724932023
+    second: longhair_hamering_strip23_16
+  - first:
+      213: -5031062894143200799
+    second: longhair_hamering_strip23_17
+  - first:
+      213: -8103693966522230764
+    second: longhair_hamering_strip23_18
+  - first:
+      213: 8356619881158960048
+    second: longhair_hamering_strip23_19
+  - first:
+      213: 6074159895917059993
+    second: longhair_hamering_strip23_20
+  - first:
+      213: -2899708300906719597
+    second: longhair_hamering_strip23_21
+  - first:
+      213: -5683594368710045437
+    second: longhair_hamering_strip23_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_0
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 31
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37169212d934c47c0800000000000000
+      internalID: -4085816419786595981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_1
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 31
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df5d749c8ac7da380800000000000000
+      internalID: -8958367019396770307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_2
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 31
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fac16f7a46528db0800000000000000
+      internalID: -4791172175604102415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_3
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 31
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdd49640448340780800000000000000
+      internalID: -8717781113899495973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_4
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 31
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40dbd429fbbb7ebe0800000000000000
+      internalID: -1447982323708609276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_5
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 31
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e29c79d6b0fc0db50800000000000000
+      internalID: 6616015500597512494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_6
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 31
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a55b9846c328228b0800000000000000
+      internalID: -5178433425626253990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_7
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 31
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bb513aa129d0b770800000000000000
+      internalID: 8624632025027009459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_8
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 31
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a7ac769642f693c0800000000000000
+      internalID: -4353025604820621401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_9
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 31
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8698b9d7b374d40d0800000000000000
+      internalID: -3437012619777832600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_10
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 31
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9fe68e6bec7f9420800000000000000
+      internalID: 2638965257275895709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_11
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 31
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00671e6687b611220800000000000000
+      internalID: 2454861436759930368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_12
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 31
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ef73532c52a829f0800000000000000
+      internalID: -492965642583703582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_13
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 31
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcdcbd7e4cef17d10800000000000000
+      internalID: 2121757021125201357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_14
+      rect:
+        serializedVersion: 2
+        x: 1379
+        y: 31
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19b0a2183a36c8a70800000000000000
+      internalID: 8830542523264535441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_15
+      rect:
+        serializedVersion: 2
+        x: 1476
+        y: 31
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a658fdfa58e12cb0800000000000000
+      internalID: -4890372242842036572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_16
+      rect:
+        serializedVersion: 2
+        x: 1574
+        y: 31
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 940ecf80adc9d2890800000000000000
+      internalID: -7481150945724932023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_17
+      rect:
+        serializedVersion: 2
+        x: 1671
+        y: 31
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e122f714f21e2ab0800000000000000
+      internalID: -5031062894143200799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_18
+      rect:
+        serializedVersion: 2
+        x: 1767
+        y: 30
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41857fcc545e98f80800000000000000
+      internalID: -8103693966522230764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_19
+      rect:
+        serializedVersion: 2
+        x: 1865
+        y: 30
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b36273b18da8f370800000000000000
+      internalID: 8356619881158960048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_20
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 31
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99f5f093e30cb4450800000000000000
+      internalID: 6074159895917059993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_21
+      rect:
+        serializedVersion: 2
+        x: 2055
+        y: 31
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3961434e9aa22c7d0800000000000000
+      internalID: -2899708300906719597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: longhair_hamering_strip23_22
+      rect:
+        serializedVersion: 2
+        x: 2150
+        y: 31
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30190add801df11b0800000000000000
+      internalID: -5683594368710045437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      longhair_hamering_strip23_0: -4085816419786595981
+      longhair_hamering_strip23_1: -8958367019396770307
+      longhair_hamering_strip23_10: 2638965257275895709
+      longhair_hamering_strip23_11: 2454861436759930368
+      longhair_hamering_strip23_12: -492965642583703582
+      longhair_hamering_strip23_13: 2121757021125201357
+      longhair_hamering_strip23_14: 8830542523264535441
+      longhair_hamering_strip23_15: -4890372242842036572
+      longhair_hamering_strip23_16: -7481150945724932023
+      longhair_hamering_strip23_17: -5031062894143200799
+      longhair_hamering_strip23_18: -8103693966522230764
+      longhair_hamering_strip23_19: 8356619881158960048
+      longhair_hamering_strip23_2: -4791172175604102415
+      longhair_hamering_strip23_20: 6074159895917059993
+      longhair_hamering_strip23_21: -2899708300906719597
+      longhair_hamering_strip23_22: -5683594368710045437
+      longhair_hamering_strip23_3: -8717781113899495973
+      longhair_hamering_strip23_4: -1447982323708609276
+      longhair_hamering_strip23_5: 6616015500597512494
+      longhair_hamering_strip23_6: -5178433425626253990
+      longhair_hamering_strip23_7: 8624632025027009459
+      longhair_hamering_strip23_8: -4353025604820621401
+      longhair_hamering_strip23_9: -3437012619777832600
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

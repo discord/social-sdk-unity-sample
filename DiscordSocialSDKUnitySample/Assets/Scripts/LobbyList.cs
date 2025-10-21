@@ -43,7 +43,17 @@ public class LobbyList : MonoBehaviour
         }
         lobbyPlayerUIObjects.Clear();
         
-        LobbyMemberAdded(lobbyId, client.GetCurrentUser().Id());
+        // Get the lobby handle and enumerate ALL existing members
+        var lobby = client.GetLobbyHandle(lobbyId);
+        var memberIds = lobby.LobbyMemberIds();
+        
+        Debug.Log($"LobbyList: Lobby created/joined with {memberIds.Length} member(s)");
+        
+        // Add UI for all members already in the lobby
+        foreach (ulong memberId in memberIds)
+        {
+            LobbyMemberAdded(lobbyId, memberId);
+        }
     }
 
     private void LobbyDeleted(ulong lobbyId)
@@ -57,9 +67,9 @@ public class LobbyList : MonoBehaviour
 
     private void LobbyMemberAdded(ulong lobbyId, ulong userId)
     {
-        GameObject playerUIObject = Instantiate(lobbyPlayerUIPrefab, content);
-        StartCoroutine(LoadAvatarFromUrl(client.GetUser(userId).AvatarUrl(UserHandle.AvatarType.Png, UserHandle.AvatarType.Png), playerUIObject.GetComponentInChildren<Image>()));
-        lobbyPlayerUIObjects[userId] = playerUIObject.transform;
+        //GameObject playerUIObject = Instantiate(lobbyPlayerUIPrefab, content);
+        //StartCoroutine(LoadAvatarFromUrl(client.GetUser(userId).AvatarUrl(UserHandle.AvatarType.Png, UserHandle.AvatarType.Png), playerUIObject.GetComponentInChildren<Image>()));
+        //lobbyPlayerUIObjects[userId] = playerUIObject.transform;
     }
 
     private void LobbyMemberRemoved(ulong lobbyId, ulong userId)

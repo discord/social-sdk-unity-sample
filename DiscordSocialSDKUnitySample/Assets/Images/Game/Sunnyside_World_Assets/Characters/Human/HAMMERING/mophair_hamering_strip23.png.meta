@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: 53174e1415cbb440ba4ab80305a146bd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9001986206542543034
+    second: mophair_hamering_strip23_0
+  - first:
+      213: -3809775032752310223
+    second: mophair_hamering_strip23_1
+  - first:
+      213: 6509108820262437352
+    second: mophair_hamering_strip23_2
+  - first:
+      213: 7577936737883641271
+    second: mophair_hamering_strip23_3
+  - first:
+      213: 1442345962133581605
+    second: mophair_hamering_strip23_4
+  - first:
+      213: -7931272529391611699
+    second: mophair_hamering_strip23_5
+  - first:
+      213: 5002353143715870819
+    second: mophair_hamering_strip23_6
+  - first:
+      213: -4603599917780361217
+    second: mophair_hamering_strip23_7
+  - first:
+      213: -6110137947512819734
+    second: mophair_hamering_strip23_8
+  - first:
+      213: 4781822605980048406
+    second: mophair_hamering_strip23_9
+  - first:
+      213: 8025974477352905951
+    second: mophair_hamering_strip23_10
+  - first:
+      213: 2432411720919562015
+    second: mophair_hamering_strip23_11
+  - first:
+      213: 7269006441145730892
+    second: mophair_hamering_strip23_12
+  - first:
+      213: 9198816440954038103
+    second: mophair_hamering_strip23_13
+  - first:
+      213: 7461571532520792804
+    second: mophair_hamering_strip23_14
+  - first:
+      213: -5603386638635142275
+    second: mophair_hamering_strip23_15
+  - first:
+      213: 1650249077908563762
+    second: mophair_hamering_strip23_16
+  - first:
+      213: -4693260841355076424
+    second: mophair_hamering_strip23_17
+  - first:
+      213: 4700369367650136893
+    second: mophair_hamering_strip23_18
+  - first:
+      213: -8808032086762292951
+    second: mophair_hamering_strip23_19
+  - first:
+      213: -4220562517709257076
+    second: mophair_hamering_strip23_20
+  - first:
+      213: 3586822547625554452
+    second: mophair_hamering_strip23_21
+  - first:
+      213: -5847269849174109055
+    second: mophair_hamering_strip23_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_0
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab83fe1a2ca7dec70800000000000000
+      internalID: 9001986206542543034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_1
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13875a2fac5f02bc0800000000000000
+      internalID: -3809775032752310223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_2
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e1ca1c3cfff45a50800000000000000
+      internalID: 6509108820262437352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_3
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b5dfef305d3a2960800000000000000
+      internalID: 7577936737883641271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_4
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52fe03cb20e340410800000000000000
+      internalID: 1442345962133581605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_5
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc09cccf7a57ee190800000000000000
+      internalID: -7931272529391611699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_6
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3683e3c3eadeb6540800000000000000
+      internalID: 5002353143715870819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_7
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fff1fa4044abc10c0800000000000000
+      internalID: -4603599917780361217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_8
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aef2dddd8ed643ba0800000000000000
+      internalID: -6110137947512819734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_9
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61c9f5033527c5240800000000000000
+      internalID: 4781822605980048406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_10
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdca8f2834df16f60800000000000000
+      internalID: 8025974477352905951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_11
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1738ec9299a1c120800000000000000
+      internalID: 2432411720919562015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_12
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c47848a68d2b0e460800000000000000
+      internalID: 7269006441145730892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_13
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 757a61dc0d2c8af70800000000000000
+      internalID: 9198816440954038103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_14
+      rect:
+        serializedVersion: 2
+        x: 1382
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e2a11696c3dc8760800000000000000
+      internalID: 7461571532520792804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_15
+      rect:
+        serializedVersion: 2
+        x: 1479
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d737bf84a85cc32b0800000000000000
+      internalID: -5603386638635142275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_16
+      rect:
+        serializedVersion: 2
+        x: 1577
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 237e7affaccd6e610800000000000000
+      internalID: 1650249077908563762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_17
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bc97c871203edeb0800000000000000
+      internalID: -4693260841355076424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_18
+      rect:
+        serializedVersion: 2
+        x: 1771
+        y: 30
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d33f9e749011b3140800000000000000
+      internalID: 4700369367650136893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_19
+      rect:
+        serializedVersion: 2
+        x: 1866
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9297a4aeb7593c580800000000000000
+      internalID: -8808032086762292951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_20
+      rect:
+        serializedVersion: 2
+        x: 1962
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c868c9b60cc8d65c0800000000000000
+      internalID: -4220562517709257076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_21
+      rect:
+        serializedVersion: 2
+        x: 2058
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 412359f6a14f6c130800000000000000
+      internalID: 3586822547625554452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mophair_hamering_strip23_22
+      rect:
+        serializedVersion: 2
+        x: 2153
+        y: 31
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18410266d035adea0800000000000000
+      internalID: -5847269849174109055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      mophair_hamering_strip23_0: 9001986206542543034
+      mophair_hamering_strip23_1: -3809775032752310223
+      mophair_hamering_strip23_10: 8025974477352905951
+      mophair_hamering_strip23_11: 2432411720919562015
+      mophair_hamering_strip23_12: 7269006441145730892
+      mophair_hamering_strip23_13: 9198816440954038103
+      mophair_hamering_strip23_14: 7461571532520792804
+      mophair_hamering_strip23_15: -5603386638635142275
+      mophair_hamering_strip23_16: 1650249077908563762
+      mophair_hamering_strip23_17: -4693260841355076424
+      mophair_hamering_strip23_18: 4700369367650136893
+      mophair_hamering_strip23_19: -8808032086762292951
+      mophair_hamering_strip23_2: 6509108820262437352
+      mophair_hamering_strip23_20: -4220562517709257076
+      mophair_hamering_strip23_21: 3586822547625554452
+      mophair_hamering_strip23_22: -5847269849174109055
+      mophair_hamering_strip23_3: 7577936737883641271
+      mophair_hamering_strip23_4: 1442345962133581605
+      mophair_hamering_strip23_5: -7931272529391611699
+      mophair_hamering_strip23_6: 5002353143715870819
+      mophair_hamering_strip23_7: -4603599917780361217
+      mophair_hamering_strip23_8: -6110137947512819734
+      mophair_hamering_strip23_9: 4781822605980048406
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -30,11 +30,11 @@ public class Lobby : MonoBehaviour
         client = DiscordManager.Instance.GetClient();
         DiscordManager.Instance.OnDiscordStatusChanged += OnStatusChanged;
 
-        createLobbyButton.onClick.AddListener(CreateLobby);
-        leaveLobbyButton.onClick.AddListener(LeaveLobby);
+        // createLobbyButton.onClick.AddListener(CreateLobby);
+        // leaveLobbyButton.onClick.AddListener(LeaveLobby);
 
-        createLobbyButton.gameObject.SetActive(false);
-        leaveLobbyButton.gameObject.SetActive(false);
+        // createLobbyButton.gameObject.SetActive(false);
+        // leaveLobbyButton.gameObject.SetActive(false);
     }
 
     void OnDestroy()
@@ -59,21 +59,21 @@ public class Lobby : MonoBehaviour
     {
         if (status == Client.Status.Ready)
         {
-            createLobbyButton.gameObject.SetActive(true);
+            // createLobbyButton.gameObject.SetActive(true);
         }
     }
 
-    private void CreateLobby()
+    public void CreateLobby()
     {
         StopAllCoroutines();
-        createLobbyButton.gameObject.SetActive(false);
+        // createLobbyButton.gameObject.SetActive(false);
         lobbySecret = System.Guid.NewGuid().ToString();
         client.CreateOrJoinLobby(lobbySecret, OnCreateOrJoinLobby);
     }
 
     public void JoinLobby(string lobbySecret)
     {
-        createLobbyButton.gameObject.SetActive(false);
+        // createLobbyButton.gameObject.SetActive(false);
         this.lobbySecret = lobbySecret;
         client.CreateOrJoinLobby(this.lobbySecret, OnCreateOrJoinLobby);
     }
@@ -95,7 +95,7 @@ public class Lobby : MonoBehaviour
         }
         else
         {
-            createLobbyButton.gameObject.SetActive(true);
+            // createLobbyButton.gameObject.SetActive(true);
 
             Debug.LogError($"Failed to create or join lobby: {clientResult}");
         }
@@ -117,7 +117,7 @@ public class Lobby : MonoBehaviour
             currentLobby = 0;
             lobbySecret = string.Empty;
 
-            createLobbyButton.gameObject.SetActive(true);
+            // createLobbyButton.gameObject.SetActive(true);
 
             if(richPresence != null)
             {
