@@ -17,19 +17,6 @@ public class Invite : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private Lobby lobby;
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        if (lobby != null && lobby.IsInLobby())
-        {
-            inviteButton.gameObject.SetActive(true);
-        }
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        inviteButton.gameObject.SetActive(false);
-    }
-
 #if DISCORD_SOCIAL_SDK_EXISTS
     private Client client;
 
@@ -41,6 +28,19 @@ public class Invite : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         lobby = FindFirstObjectByType<Lobby>();
 
         client = DiscordManager.Instance.GetClient();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (lobby != null && lobby.IsInLobby())
+        {
+            inviteButton.gameObject.SetActive(true);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        inviteButton.gameObject.SetActive(false);
     }
 
     private void InviteFriend()
@@ -62,6 +62,14 @@ public class Invite : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             Debug.LogError($"Failed to send invite {result.Error()}");
         }
+    }
+#else
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
     }
 #endif
 }
