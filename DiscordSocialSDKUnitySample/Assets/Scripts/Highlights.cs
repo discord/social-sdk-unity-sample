@@ -12,6 +12,9 @@ public class HighlightsManager : MonoBehaviour
     {
         public RectTransform target;
         public string instruction;
+
+        [System.NonSerialized] 
+    public System.Action onStep;
     }
 
     public List<TutorialStep> steps;
@@ -35,9 +38,13 @@ public class HighlightsManager : MonoBehaviour
         //     ShowStep(1);
         // }
         //openSettings();
+        steps[0].onStep = OpenSettings;
+        steps[1].onStep = OpenConnectToDiscord;
+        steps[2].onStep = StartAuthFlow;
         nextButton.onClick.AddListener(() =>
    {
        Debug.Log("[Highlight Debug] Next button clicked!");
+       steps[currentStep].onStep?.Invoke();
        NextStep();
    });
 
@@ -52,8 +59,16 @@ public class HighlightsManager : MonoBehaviour
         ShowStep(0);
     }
 
-    void openSettings() {
+    void OpenSettings() {
         settingsUI.openSettings();
+    }
+
+    void OpenConnectToDiscord() {
+        settingsUI.OpenConnectToDiscord();
+    }
+
+    void StartAuthFlow() {
+        settingsUI.StartAuthFlow();
     }
 
     void ShowStep(int index)

@@ -471,11 +471,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5193884314003049679, guid: 11d71887b30dd479888c187202649e1a, type: 3}
   m_PrefabInstance: {fileID: 4577447319465936642}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &335839730 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9196744667321002379, guid: 11d71887b30dd479888c187202649e1a, type: 3}
-  m_PrefabInstance: {fileID: 4577447319465936642}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &390128486
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,6 +546,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 390128486}
   m_CullTransparentMesh: 1
+--- !u!224 &517255516 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5660928702088126469, guid: 38f4065942b274a7da173da9c27bed5b, type: 3}
+  m_PrefabInstance: {fileID: 2081403645073207976}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &544184492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,7 +1109,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &668154584
 RectTransform:
@@ -1148,8 +1148,10 @@ MonoBehaviour:
   steps:
   - target: {fileID: 286726925}
     instruction: Click here to play with friends
-  - target: {fileID: 335839730}
-    instruction: play game starts here
+  - target: {fileID: 1708482972}
+    instruction: Connect your discord
+  - target: {fileID: 517255516}
+    instruction: Connect
   highlightBox: {fileID: 390128488}
   instructionText: {fileID: 1808358897}
   nextButton: {fileID: 1508260269}
@@ -7687,6 +7689,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!224 &1708482972 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4825463890056965759, guid: 38f4065942b274a7da173da9c27bed5b, type: 3}
+  m_PrefabInstance: {fileID: 2081403645073207976}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1741704797
 GameObject:
   m_ObjectHideFlags: 0
