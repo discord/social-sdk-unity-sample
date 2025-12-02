@@ -46,6 +46,9 @@ public class DiscordManager : MonoBehaviour
     public delegate void SetActivityInviteCreatedHandler(ActivityInvite invite);
     public event SetActivityInviteCreatedHandler OnDiscordSetActivityInviteCreated;
 
+    public delegate void SetMessageCreatedHandler(ulong messageId);
+    public event SetMessageCreatedHandler OnDiscordMessageCreated;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -67,6 +70,7 @@ public class DiscordManager : MonoBehaviour
         client.SetLobbyMemberAddedCallback(OnLobbyMemberAdded);
         client.SetLobbyMemberRemovedCallback(OnLobbyMemberRemoved);
         client.SetActivityInviteCreatedCallback(OnSetActivityInviteCreated);
+        client.SetMessageCreatedCallback(OnMessageCreated);
     }
 
     void Start()
@@ -155,6 +159,14 @@ public class DiscordManager : MonoBehaviour
         if (OnDiscordSetActivityInviteCreated != null)
         {
             OnDiscordSetActivityInviteCreated.Invoke(invite);
+        }
+    }
+
+    private void OnMessageCreated(ulong messageId)
+    {
+        if(OnDiscordMessageCreated != null)
+        {
+            OnDiscordMessageCreated.Invoke(messageId);
         }
     }
 

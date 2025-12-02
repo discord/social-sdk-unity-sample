@@ -766,7 +766,7 @@ PlayerSettings:
   webGLCloseOnQuit: 0
   webWasm2023: 0
   scriptingDefineSymbols:
-    Standalone: 
+    Standalone: DISCORD_SOCIAL_SDK_EXISTS
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

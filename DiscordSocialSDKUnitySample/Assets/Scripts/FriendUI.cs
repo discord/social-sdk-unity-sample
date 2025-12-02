@@ -40,6 +40,11 @@ public class FriendUI : MonoBehaviour
         UpdateStatus();
     }
 
+    public void OpenDirectMessage()
+    {
+        FindFirstObjectByType<MessageManager>().OpenMessager(relationshipHandle.Id());
+    }
+
     public void UpdateUI()
     {
         UpdateStatus();

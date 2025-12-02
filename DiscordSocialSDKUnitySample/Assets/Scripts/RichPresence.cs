@@ -1,7 +1,5 @@
 using UnityEngine;
-#if DISCORD_SOCIAL_SDK_EXISTS
 using Discord.Sdk;
-#endif
 
 /// <summary>
 /// RichPresence manages the Discord Rich Presence for the game. You can set game details, state, time played, and more!
@@ -41,44 +39,13 @@ public class RichPresence : MonoBehaviour
     public void UpdateRichPresence(ActivityTypes type, string state, string details)
     {
         Activity activity = new Activity();
-
-        activity.SetType(type);
         activity.SetState(state);
         activity.SetDetails(details);
-
-        var activityTimestamp = new ActivityTimestamps();
-        activityTimestamp.SetStart(startTimestamp);
-        activity.SetTimestamps(activityTimestamp);
-
-        client.UpdateRichPresence(activity, OnUpdateRichPresence);
-    }
-
-    public void SetDefaultRichPresence()
-    {
-        UpdateRichPresence(ActivityTypes.Playing, startState, startDetails);
-    }
-
-    public void UpdateRichPresenceLobby(ActivityTypes type, string state, string details, string lobbySecret, string lobbyId, int maxPartySize)
-    {
-        Activity activity = new Activity();
-
-        activity.SetType(type);
-        activity.SetState(state);
-        activity.SetDetails(details);
-
-        ActivityParty party = new ActivityParty();
-        party.SetId(lobbyId);
-        party.SetCurrentSize(1);
-        party.SetMaxSize(maxPartySize);
-        activity.SetParty(party);
-
-        ActivitySecrets secrets = new ActivitySecrets();
-        secrets.SetJoin(lobbySecret);
-        activity.SetSecrets(secrets);
-
-        var activityTimestamp = new ActivityTimestamps();
-        activityTimestamp.SetStart(startTimestamp);
-        activity.SetTimestamps(activityTimestamp);
+        activity.SetType(ActivityTypes.Playing);
+        
+        ActivityTimestamps timestamp = new ActivityTimestamps();
+        timestamp.SetStart(startTimestamp);
+        activity.SetTimestamps(timestamp);
 
         client.UpdateRichPresence(activity, OnUpdateRichPresence);
     }

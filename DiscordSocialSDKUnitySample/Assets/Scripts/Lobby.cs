@@ -88,7 +88,7 @@ public class Lobby : MonoBehaviour
 
             if(richPresence != null)
             {
-                richPresence.UpdateRichPresenceLobby(ActivityTypes.Playing, "In Lobby", "Waiting for players", lobbySecret, lobbyId.ToString(), maxLobbySize);
+                //richPresence.UpdateRichPresenceLobby(ActivityTypes.Playing, "In Lobby", "Waiting for players", lobbySecret, lobbyId.ToString(), maxLobbySize);
             }
 
             Debug.Log($"Successfully created or joined lobby {lobbyId}");
@@ -121,7 +121,7 @@ public class Lobby : MonoBehaviour
 
             if(richPresence != null)
             {
-                richPresence.SetDefaultRichPresence();
+                //richPresence.SetDefaultRichPresence();
             }
         }
         else
