@@ -24,12 +24,16 @@ public class FriendUI : MonoBehaviour
     [SerializeField] private Sprite dndSprite;
     [SerializeField] private Sprite offlineSprite;
 
-#if DISCORD_SOCIAL_SDK_EXISTS
     private RelationshipHandle relationshipHandle;
 
     void Start()
     {
         StartCoroutine(LoadAvatarFromUrl(relationshipHandle.User().AvatarUrl(UserHandle.AvatarType.Png, UserHandle.AvatarType.Png)));
+    }
+
+    public void StartDirectMessage()
+    {
+        FindFirstObjectByType<MessageManager>().StartDirectMessage(relationshipHandle.Id());
     }
 
     public void SetUser(RelationshipHandle relationshipHandle)
@@ -38,11 +42,6 @@ public class FriendUI : MonoBehaviour
         username.text = relationshipHandle.User().DisplayName();
         discordFriendImage.gameObject.SetActive(relationshipHandle.DiscordRelationshipType() == RelationshipType.Friend);
         UpdateStatus();
-    }
-
-    public void OpenDirectMessage()
-    {
-        FindFirstObjectByType<MessageManager>().OpenMessager(relationshipHandle.Id());
     }
 
     public void UpdateUI()
@@ -93,5 +92,4 @@ public class FriendUI : MonoBehaviour
             }
         }
     }
-#endif
 }

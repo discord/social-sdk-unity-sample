@@ -5,7 +5,6 @@ using TMPro;
 public class MessageManager : MonoBehaviour
 {
     Client client;
-
     ulong currentUser;
 
     public GameObject messagePanel;
@@ -14,29 +13,29 @@ public class MessageManager : MonoBehaviour
     void Start()
     {
         client = DiscordManager.Instance.GetClient();
-        DiscordManager.Instance.OnDiscordMessageCreated += ShowMessage;
+        DiscordManager.Instance.OnDiscordMessageCreated += DiscordMessageCreated;
     }
 
-    public void OpenMessager(ulong userId)
+    public void StartDirectMessage(ulong userId)
     {
         currentUser = userId;
         messagePanel.SetActive(true);
     }
 
-    public void SendDirectMessage(string text)
+    public void SendDirectMessage(string content)
     {
-        client.SendUserMessage(currentUser, text, SendMessageCallback);
+        client.SendUserMessage(currentUser, content, OnSendMessage);
     }
 
-    private void SendMessageCallback(ClientResult result, ulong messageId)
+    void OnSendMessage(ClientResult result, ulong messageId)
     {
-        if (result.Successful())
+        if(result.Successful())
         {
-            print("Message sent successfully!");
+            print("Message Sent!");
         }
     }
-
-    private void ShowMessage(ulong messageId)
+    
+    private void DiscordMessageCreated(ulong messageId)
     {
         MessageHandle message = client.GetMessageHandle(messageId);
         textBox.text += $"{message.Author().DisplayName()}: {message.Content()}\n";

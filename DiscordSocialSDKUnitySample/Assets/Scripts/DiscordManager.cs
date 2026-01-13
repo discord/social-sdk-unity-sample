@@ -14,9 +14,9 @@ using Discord.Sdk;
 /// </summary>
 public class DiscordManager : MonoBehaviour
 {
-    [SerializeField] private DiscordSocialSDKConfig discordSocialSDKConfig;
+    [SerializeField]
+    private ulong applicationId;
 
-#if DISCORD_SOCIAL_SDK_EXISTS
     public static DiscordManager Instance { get; private set; }
     private Client client;
     private string codeVerifier;
@@ -25,6 +25,7 @@ public class DiscordManager : MonoBehaviour
     // In order to allow multiple listeners to subscribe to these callbacks in Unity we create delegates and
     // invoke those when the callbacks are triggered.
     // This lets us modularly subscribe to these callbacks frommany different scripts.
+    #region Social SDK Callbacks
     public delegate void StatusChangedHandler(Client.Status status, Client.Error error, int errorCode);
     public event StatusChangedHandler OnDiscordStatusChanged;
 
@@ -71,47 +72,6 @@ public class DiscordManager : MonoBehaviour
         client.SetLobbyMemberRemovedCallback(OnLobbyMemberRemoved);
         client.SetActivityInviteCreatedCallback(OnSetActivityInviteCreated);
         client.SetMessageCreatedCallback(OnMessageCreated);
-    }
-
-    void Start()
-    {
-        // Registering an empty launch command will register the current running executible/app in Windows, Mac, and Linux
-        client.RegisterLaunchCommand(discordSocialSDKConfig.ApplicationId, string.Empty);
-
-        if (PlayerPrefs.HasKey("RefreshToken"))
-        {
-            client.RefreshToken(discordSocialSDKConfig.ApplicationId, PlayerPrefs.GetString("RefreshToken"), OnGetToken);
-        }
-    }
-
-    private void OnDestroy()
-    {
-        client.Disconnect();
-    }
-
-    public Client GetClient()
-    {
-        return client;
-    }
-
-    private void OnLog(string message, LoggingSeverity severity)
-    {
-        Debug.Log($"Log: {severity} - {message}");
-    }
-
-    private void OnStatusChanged(Client.Status status, Client.Error error, int errorCode)
-    {
-        Debug.Log($"Status changed: {status}");
-
-        if (OnDiscordStatusChanged != null)
-        {
-            OnDiscordStatusChanged.Invoke(status, error, errorCode);
-        }
-
-        if (error != Client.Error.None)
-        {
-            Debug.LogError($"Error: {error}, code: {errorCode}");
-        }
     }
 
     private void OnRelationshipsUpdated(ulong userId)
@@ -170,24 +130,53 @@ public class DiscordManager : MonoBehaviour
         }
     }
 
-    public void StartOAuthFlow()
+    #endregion
+
+    private void OnStatusChanged(Client.Status status, Client.Error error, int errorCode)
     {
-        if (discordSocialSDKConfig == null)
+        Debug.Log($"Status changed: {status}");
+
+        if (OnDiscordStatusChanged != null)
         {
-            Debug.LogError("Discord Social SDK Config is not set. Create one in your asset folder by right-clicking and selecting Create > Config > Discord Social SDK and attaching it to the DiscordManager.");
-            return;
-        }
-        if (discordSocialSDKConfig.ApplicationId == 0)
-        {
-            Debug.LogError("Discord Social SDK Config Application ID is not set. Make sure you've created an app in the Discord developer portal and copied the Application ID into the config.");
-            return;
+            OnDiscordStatusChanged.Invoke(status, error, errorCode);
         }
 
+        if (error != Client.Error.None)
+        {
+            Debug.LogError($"Error: {error}, code: {errorCode}");
+        }
+    }
+
+    void Start()
+    {
+        if (PlayerPrefs.HasKey("RefreshToken"))
+        {
+            client.RefreshToken(applicationId, PlayerPrefs.GetString("RefreshToken"), OnGetToken);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        client.Disconnect();
+    }
+
+    public Client GetClient()
+    {
+        return client;
+    }
+
+    private void OnLog(string message, LoggingSeverity severity)
+    {
+        Debug.Log($"Log: {severity} - {message}");
+    }
+
+    public void StartOAuthFlow()
+    {
         var authorizationVerifier = client.CreateAuthorizationCodeVerifier();
         codeVerifier = authorizationVerifier.Verifier();
 
         var args = new AuthorizationArgs();
-        args.SetClientId(discordSocialSDKConfig.ApplicationId);
+        args.SetClientId(applicationId);
         args.SetScopes(Client.GetDefaultCommunicationScopes());
         args.SetCodeChallenge(authorizationVerifier.Challenge());
         client.Authorize(args, OnAuthorizeResult);
@@ -206,7 +195,7 @@ public class DiscordManager : MonoBehaviour
 
     private void GetTokenFromCode(string code, string redirectUri)
     {
-        client.GetToken(discordSocialSDKConfig.ApplicationId, code, codeVerifier, redirectUri, OnGetToken);
+        client.GetToken(applicationId, code, codeVerifier, redirectUri, OnGetToken);
     }
 
     private void OnGetToken(ClientResult result, string token, string refreshToken, AuthorizationTokenType tokenType, int expiresIn, string scope)
@@ -236,5 +225,4 @@ public class DiscordManager : MonoBehaviour
             Debug.LogError($"Failed to update token: {result.Error()}");
         }
     }
-#endif
 }
