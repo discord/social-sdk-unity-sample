@@ -17,8 +17,8 @@ using UnityEngine;
 /// </summary>
 public class PositionSyncClient : MonoBehaviour
 {
-    [Tooltip("WebSocket URL of the position sync server, e.g. wss://your-app.onrender.com")]
-    [SerializeField] private string serverUrl = "wss://your-app.onrender.com";
+    [Tooltip("WebSocket URL of the position sync server")]
+    [SerializeField] private string serverUrl = "wss://dungeon-delvers-3d.onrender.com";
 
     private ClientWebSocket _ws;
     private CancellationTokenSource _cts;
