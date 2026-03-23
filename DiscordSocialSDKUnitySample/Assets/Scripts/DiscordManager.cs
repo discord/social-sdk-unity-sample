@@ -43,6 +43,12 @@ public class DiscordManager : MonoBehaviour
     public delegate void LobbyMemberRemovedHandler(ulong lobbyId, ulong userId);
     public event LobbyMemberRemovedHandler OnDiscordLobbyMemberRemoved;
 
+    public delegate void LobbyMemberUpdatedHandler(ulong lobbyId, ulong userId);
+    public event LobbyMemberUpdatedHandler OnDiscordLobbyMemberUpdated;
+
+    public delegate void LobbyMessageCreatedHandler(ulong messageId);
+    public event LobbyMessageCreatedHandler OnDiscordLobbyMessageCreated;
+
     public delegate void SetActivityInviteCreatedHandler(ActivityInvite invite);
     public event SetActivityInviteCreatedHandler OnDiscordSetActivityInviteCreated;
 
@@ -66,6 +72,8 @@ public class DiscordManager : MonoBehaviour
         client.SetLobbyDeletedCallback(OnLobbyDeleted);
         client.SetLobbyMemberAddedCallback(OnLobbyMemberAdded);
         client.SetLobbyMemberRemovedCallback(OnLobbyMemberRemoved);
+        client.SetLobbyMemberUpdatedCallback(OnLobbyMemberUpdated);
+        client.SetMessageCreatedCallback(OnLobbyMessageCreated);
         client.SetActivityInviteCreatedCallback(OnSetActivityInviteCreated);
     }
 
@@ -142,6 +150,22 @@ public class DiscordManager : MonoBehaviour
         if (OnDiscordLobbyMemberRemoved != null)
         {
             OnDiscordLobbyMemberRemoved.Invoke(lobbyId, userId);
+        }
+    }
+
+    private void OnLobbyMemberUpdated(ulong lobbyId, ulong userId)
+    {
+        if (OnDiscordLobbyMemberUpdated != null)
+        {
+            OnDiscordLobbyMemberUpdated.Invoke(lobbyId, userId);
+        }
+    }
+
+    private void OnLobbyMessageCreated(ulong messageId)
+    {
+        if (OnDiscordLobbyMessageCreated != null)
+        {
+            OnDiscordLobbyMessageCreated.Invoke(messageId);
         }
     }
 

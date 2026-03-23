@@ -19,6 +19,14 @@ public class Lobby : MonoBehaviour
     private string lobbySecret = string.Empty;
     private ulong currentLobby = 0;
 
+    public delegate void LobbyJoinedHandler(ulong lobbyId, string secret);
+    public event LobbyJoinedHandler OnLobbyJoined;
+
+    public delegate void LobbyLeftHandler();
+    public event LobbyLeftHandler OnLobbyLeft;
+
+    public string GetLobbySecret() => lobbySecret;
+
 #if DISCORD_SOCIAL_SDK_EXISTS
     private Client client;
     private RichPresence richPresence;
@@ -91,6 +99,8 @@ public class Lobby : MonoBehaviour
                 richPresence.UpdateRichPresenceLobby(ActivityTypes.Playing, "In Lobby", "Waiting for players", lobbySecret, lobbyId.ToString(), maxLobbySize);
             }
 
+            OnLobbyJoined?.Invoke(lobbyId, lobbySecret);
+
             Debug.Log($"Successfully created or joined lobby {lobbyId}");
         }
         else
@@ -118,6 +128,8 @@ public class Lobby : MonoBehaviour
             lobbySecret = string.Empty;
 
             createLobbyButton.gameObject.SetActive(true);
+
+            OnLobbyLeft?.Invoke();
 
             if(richPresence != null)
             {

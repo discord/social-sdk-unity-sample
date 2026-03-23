@@ -1,0 +1,222 @@
+using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
+#if DISCORD_SOCIAL_SDK_EXISTS
+using Discord.Sdk;
+#endif
+
+/// <summary>
+/// Manages spawning/despawning of local and remote players based on Discord lobby
+/// membership, and drives position synchronization via PositionSyncClient.
+///
+/// Spawn/despawn is authoritative from Discord lobby events.
+/// Position updates are sent to and received from the WebSocket position-sync server.
+/// </summary>
+public class GameManager : MonoBehaviour
+{
+    [Header("Prefabs")]
+    [Tooltip("Prefab with PlayerMovement, Rigidbody, and CapsuleCollider for the local player.")]
+    [SerializeField] private GameObject localPlayerPrefab;
+    [Tooltip("Prefab with RemotePlayer script for other lobby members.")]
+    [SerializeField] private GameObject remotePlayerPrefab;
+
+    [Header("Scene")]
+    [Tooltip("Where players spawn. If unset, uses world origin.")]
+    [SerializeField] private Transform spawnPoint;
+
+    [Header("Position Sync")]
+    [Tooltip("PositionSyncClient component that manages the WebSocket connection.")]
+    [SerializeField] private PositionSyncClient positionSyncClient;
+    [Tooltip("How often (seconds) the local player's position is sent to the server.")]
+    [SerializeField] private float positionSendInterval = 0.1f;
+
+#if DISCORD_SOCIAL_SDK_EXISTS
+    private Client client;
+    private Lobby lobby;
+    private ulong myUserId;
+    private ulong currentLobbyId;
+
+    private GameObject localPlayerObj;
+    private readonly Dictionary<ulong, GameObject> remotePlayers = new();
+
+    void Start()
+    {
+        client = DiscordManager.Instance.GetClient();
+        lobby = FindFirstObjectByType<Lobby>();
+
+        DiscordManager.Instance.OnDiscordStatusChanged += OnStatusChanged;
+        DiscordManager.Instance.OnDiscordLobbyMemberAdded += OnLobbyMemberAdded;
+        DiscordManager.Instance.OnDiscordLobbyMemberRemoved += OnLobbyMemberRemoved;
+        DiscordManager.Instance.OnDiscordLobbyDeleted += OnLobbyDeleted;
+
+        if (lobby != null)
+        {
+            lobby.OnLobbyJoined += OnLobbyJoined;
+            lobby.OnLobbyLeft += OnLobbyLeft;
+        }
+
+        if (positionSyncClient != null)
+        {
+            positionSyncClient.OnWelcome += OnSyncWelcome;
+            positionSyncClient.OnPositionReceived += OnSyncPositionReceived;
+        }
+    }
+
+    void OnDestroy()
+    {
+        if (DiscordManager.Instance != null)
+        {
+            DiscordManager.Instance.OnDiscordStatusChanged -= OnStatusChanged;
+            DiscordManager.Instance.OnDiscordLobbyMemberAdded -= OnLobbyMemberAdded;
+            DiscordManager.Instance.OnDiscordLobbyMemberRemoved -= OnLobbyMemberRemoved;
+            DiscordManager.Instance.OnDiscordLobbyDeleted -= OnLobbyDeleted;
+        }
+
+        if (lobby != null)
+        {
+            lobby.OnLobbyJoined -= OnLobbyJoined;
+            lobby.OnLobbyLeft -= OnLobbyLeft;
+        }
+
+        if (positionSyncClient != null)
+        {
+            positionSyncClient.OnWelcome -= OnSyncWelcome;
+            positionSyncClient.OnPositionReceived -= OnSyncPositionReceived;
+        }
+    }
+
+    // ── Discord status ────────────────────────────────────────────────────────
+
+    private void OnStatusChanged(Client.Status status, Client.Error error, int errorCode)
+    {
+        if (status == Client.Status.Ready)
+        {
+            var user = client.GetCurrentUserV2();
+            if (user != null)
+                myUserId = user.Id();
+        }
+    }
+
+    // ── Lobby lifecycle ───────────────────────────────────────────────────────
+
+    private void OnLobbyJoined(ulong lobbyId, string secret)
+    {
+        currentLobbyId = lobbyId;
+
+        SpawnLocalPlayer();
+
+        // Spawn remote players already in the lobby
+        var lobbyHandle = client.GetLobbyHandle(lobbyId);
+        if (lobbyHandle != null)
+        {
+            foreach (var memberId in lobbyHandle.LobbyMemberIds())
+            {
+                if (memberId != myUserId)
+                    SpawnRemotePlayer(memberId);
+            }
+        }
+
+        positionSyncClient?.Connect(secret, myUserId);
+        StartCoroutine(SendPositionLoop());
+    }
+
+    private void OnLobbyLeft()
+    {
+        StopAllCoroutines();
+        positionSyncClient?.Disconnect();
+        DespawnLocalPlayer();
+        DespawnAllRemotePlayers();
+        currentLobbyId = 0;
+    }
+
+    private void OnLobbyDeleted(ulong lobbyId)
+    {
+        StopAllCoroutines();
+        positionSyncClient?.Disconnect();
+        DespawnLocalPlayer();
+        DespawnAllRemotePlayers();
+        currentLobbyId = 0;
+    }
+
+    // ── Lobby membership ─────────────────────────────────────────────────────
+
+    private void OnLobbyMemberAdded(ulong lobbyId, ulong userId)
+    {
+        if (userId == myUserId) return;
+        SpawnRemotePlayer(userId);
+    }
+
+    private void OnLobbyMemberRemoved(ulong lobbyId, ulong userId)
+    {
+        if (!remotePlayers.TryGetValue(userId, out var go)) return;
+        Destroy(go);
+        remotePlayers.Remove(userId);
+    }
+
+    // ── Position sync events ──────────────────────────────────────────────────
+
+    private void OnSyncWelcome(PositionSyncClient.PlayerState[] players)
+    {
+        foreach (var p in players)
+        {
+            if (!ulong.TryParse(p.userId, out var uid)) continue;
+            if (!remotePlayers.TryGetValue(uid, out var go)) continue;
+            go.GetComponent<RemotePlayer>().SetTarget(new Vector3(p.x, p.y, p.z), p.yaw);
+        }
+    }
+
+    private void OnSyncPositionReceived(ulong userId, Vector3 pos, float yaw)
+    {
+        if (!remotePlayers.TryGetValue(userId, out var go)) return;
+        go.GetComponent<RemotePlayer>().SetTarget(pos, yaw);
+    }
+
+    // ── Spawning ─────────────────────────────────────────────────────────────
+
+    private void SpawnLocalPlayer()
+    {
+        if (localPlayerObj != null) return;
+        localPlayerObj = Instantiate(localPlayerPrefab, SpawnPosition(), SpawnRotation());
+    }
+
+    private void DespawnLocalPlayer()
+    {
+        if (localPlayerObj == null) return;
+        Destroy(localPlayerObj);
+        localPlayerObj = null;
+    }
+
+    private void SpawnRemotePlayer(ulong userId)
+    {
+        if (remotePlayers.ContainsKey(userId)) return;
+        var go = Instantiate(remotePlayerPrefab, SpawnPosition(), SpawnRotation());
+        remotePlayers[userId] = go;
+    }
+
+    private void DespawnAllRemotePlayers()
+    {
+        foreach (var go in remotePlayers.Values)
+            if (go != null) Destroy(go);
+        remotePlayers.Clear();
+    }
+
+    private Vector3 SpawnPosition() => spawnPoint != null ? spawnPoint.position : Vector3.zero;
+    private Quaternion SpawnRotation() => spawnPoint != null ? spawnPoint.rotation : Quaternion.identity;
+
+    // ── Position sending ──────────────────────────────────────────────────────
+
+    private IEnumerator SendPositionLoop()
+    {
+        var wait = new WaitForSeconds(positionSendInterval);
+        while (localPlayerObj != null && currentLobbyId != 0)
+        {
+            if (positionSyncClient != null && positionSyncClient.IsConnected)
+                positionSyncClient.SendPosition(
+                    localPlayerObj.transform.position,
+                    localPlayerObj.transform.eulerAngles.y);
+            yield return wait;
+        }
+    }
+#endif
+}
