@@ -176,6 +176,19 @@ public class FriendsList : MonoBehaviour
         Canvas.ForceUpdateCanvases();
         LayoutRebuilder.ForceRebuildLayoutImmediate(mainContentRectTransform);
     }
+
+    public void ToggleFriendsList()
+    {
+        print("Hello");
+        if(transform.localScale.x < 0.5f)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        else
+        {
+            transform.localScale = new Vector3(0f, 1f, 1f);
+        }
+    }
 #else
     void Start()
     {
