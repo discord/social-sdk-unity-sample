@@ -37,6 +37,7 @@ public class Lobby : MonoBehaviour
 
         client = DiscordManager.Instance.GetClient();
         DiscordManager.Instance.OnDiscordStatusChanged += OnStatusChanged;
+        DiscordManager.Instance.OnDiscordSetActivityJoinCallback += OnSetActivityJoinCallback;
 
         createLobbyButton.onClick.AddListener(CreateLobby);
         leaveLobbyButton.onClick.AddListener(LeaveLobby);
@@ -71,8 +72,15 @@ public class Lobby : MonoBehaviour
         }
     }
 
+    private void OnSetActivityJoinCallback(string secret)
+    {
+        DiscordManager.Instance.OnLog("Received join activity callback with secret: " + secret, LoggingSeverity.Warning);
+        JoinLobby(secret);
+    }
+
     private void CreateLobby()
     {
+        DiscordManager.Instance.OnLog("Created lobby " + lobbySecret, LoggingSeverity.Warning);
         StopAllCoroutines();
         createLobbyButton.gameObject.SetActive(false);
         lobbySecret = System.Guid.NewGuid().ToString();
@@ -81,6 +89,7 @@ public class Lobby : MonoBehaviour
 
     public void JoinLobby(string lobbySecret)
     {
+        DiscordManager.Instance.OnLog("Joined lobby " + lobbySecret, LoggingSeverity.Warning);
         createLobbyButton.gameObject.SetActive(false);
         this.lobbySecret = lobbySecret;
         client.CreateOrJoinLobby(this.lobbySecret, OnCreateOrJoinLobby);

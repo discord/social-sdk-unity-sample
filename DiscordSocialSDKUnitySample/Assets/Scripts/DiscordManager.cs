@@ -1,4 +1,6 @@
 using UnityEngine;
+using TMPro;
+
 #if DISCORD_SOCIAL_SDK_EXISTS
 using Discord.Sdk;
 #endif
@@ -20,6 +22,8 @@ public class DiscordManager : MonoBehaviour
     public static DiscordManager Instance { get; private set; }
     private Client client;
     private string codeVerifier;
+
+    public TextMeshProUGUI logText;
 
     // The Discord Social SDK callbacks only support a single callback.
     // In order to allow multiple listeners to subscribe to these callbacks in Unity we create delegates and
@@ -52,6 +56,9 @@ public class DiscordManager : MonoBehaviour
     public delegate void SetActivityInviteCreatedHandler(ActivityInvite invite);
     public event SetActivityInviteCreatedHandler OnDiscordSetActivityInviteCreated;
 
+    public delegate void SetActivityJoinCallbackHandler(string secret);
+    public event SetActivityJoinCallbackHandler OnDiscordSetActivityJoinCallback;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -65,7 +72,7 @@ public class DiscordManager : MonoBehaviour
 
         client = new Client();
 
-        client.AddLogCallback(OnLog, LoggingSeverity.Error);
+        client.AddLogCallback(OnLog, LoggingSeverity.Warning);
         client.SetStatusChangedCallback(OnStatusChanged);
         client.SetRelationshipGroupsUpdatedCallback(OnRelationshipsUpdated);
         client.SetLobbyCreatedCallback(OnLobbyCreated);
@@ -75,12 +82,19 @@ public class DiscordManager : MonoBehaviour
         client.SetLobbyMemberUpdatedCallback(OnLobbyMemberUpdated);
         client.SetMessageCreatedCallback(OnLobbyMessageCreated);
         client.SetActivityInviteCreatedCallback(OnSetActivityInviteCreated);
+        client.SetActivityJoinCallback(OnSetActivityJoinCallback);
     }
 
     void Start()
     {
         // Registering an empty launch command will register the current running executible/app in Windows, Mac, and Linux
         client.RegisterLaunchCommand(discordSocialSDKConfig.ApplicationId, string.Empty);
+
+        if(PlayerPrefs.HasKey("refresh_token"))
+        {
+            var refreshToken = PlayerPrefs.GetString("refresh_token");
+            client.RefreshToken(discordSocialSDKConfig.ApplicationId, refreshToken, OnGetToken);
+        }
     }
 
     private void OnDestroy()
@@ -93,9 +107,10 @@ public class DiscordManager : MonoBehaviour
         return client;
     }
 
-    private void OnLog(string message, LoggingSeverity severity)
+    public void OnLog(string message, LoggingSeverity severity)
     {
         Debug.Log($"Log: {severity} - {message}");
+        logText.text = $"{severity} - {message}\n" + logText.text;
     }
 
     private void OnStatusChanged(Client.Status status, Client.Error error, int errorCode)
@@ -177,6 +192,15 @@ public class DiscordManager : MonoBehaviour
         }
     }
 
+    private void OnSetActivityJoinCallback(string secret)
+    {
+        OnLog("Received join activity callback with secret: " + secret + " and the Client is in status " + client.GetStatus(), LoggingSeverity.Warning);
+        if (OnDiscordSetActivityJoinCallback != null)
+        {
+            OnDiscordSetActivityJoinCallback.Invoke(secret);
+        }
+    }
+
     public void StartOAuthFlow()
     {
         if (discordSocialSDKConfig == null)
@@ -224,6 +248,8 @@ public class DiscordManager : MonoBehaviour
         }
         else
         {
+            PlayerPrefs.SetString("refresh_token", refreshToken);
+            PlayerPrefs.Save();
             client.UpdateToken(AuthorizationTokenType.Bearer, token, OnUpdateToken);
         }
     }

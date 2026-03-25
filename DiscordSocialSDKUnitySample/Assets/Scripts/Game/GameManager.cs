@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 #if DISCORD_SOCIAL_SDK_EXISTS
 using Discord.Sdk;
@@ -36,9 +38,11 @@ public class GameManager : MonoBehaviour
     private Lobby lobby;
     private ulong myUserId;
     private ulong currentLobbyId;
+    private Call activeCall;
 
     private GameObject localPlayerObj;
-    private readonly Dictionary<ulong, GameObject> remotePlayers = new();
+    private readonly Dictionary<ulong, RemotePlayer> remotePlayers = new();
+    private readonly ConcurrentDictionary<ulong, VoiceAudioSource> voiceSources = new();
 
     void Start()
     {
@@ -118,6 +122,15 @@ public class GameManager : MonoBehaviour
         }
 
         positionSyncClient?.Connect(secret, myUserId);
+
+        activeCall = client.StartCallWithAudioCallbacks(currentLobbyId, OnVoiceAudioReceived,
+            (data, samplesPerChannel, sampleRate, channels) => { });
+
+        if (activeCall != null)
+        {
+            activeCall.SetVADThreshold(false, -100f);
+        }
+
         StartCoroutine(SendPositionLoop());
     }
 
@@ -125,6 +138,8 @@ public class GameManager : MonoBehaviour
     {
         StopAllCoroutines();
         positionSyncClient?.Disconnect();
+        client.EndCall(currentLobbyId, () => { });
+        activeCall = null;
         DespawnLocalPlayer();
         DespawnAllRemotePlayers();
         currentLobbyId = 0;
@@ -134,6 +149,8 @@ public class GameManager : MonoBehaviour
     {
         StopAllCoroutines();
         positionSyncClient?.Disconnect();
+        client.EndCall(currentLobbyId, () => { });
+        activeCall = null;
         DespawnLocalPlayer();
         DespawnAllRemotePlayers();
         currentLobbyId = 0;
@@ -149,9 +166,10 @@ public class GameManager : MonoBehaviour
 
     private void OnLobbyMemberRemoved(ulong lobbyId, ulong userId)
     {
-        if (!remotePlayers.TryGetValue(userId, out var go)) return;
-        Destroy(go);
+        if (!remotePlayers.TryGetValue(userId, out var remote)) return;
+        Destroy(remote.gameObject);
         remotePlayers.Remove(userId);
+        voiceSources.TryRemove(userId, out _);
     }
 
     // ── Position sync events ──────────────────────────────────────────────────
@@ -161,15 +179,28 @@ public class GameManager : MonoBehaviour
         foreach (var p in players)
         {
             if (!ulong.TryParse(p.userId, out var uid)) continue;
-            if (!remotePlayers.TryGetValue(uid, out var go)) continue;
-            go.GetComponent<RemotePlayer>().SetTarget(new Vector3(p.x, p.y, p.z), p.yaw);
+            if (!remotePlayers.TryGetValue(uid, out var remote)) continue;
+            remote.SetTarget(new Vector3(p.x, p.y, p.z), p.yaw);
         }
     }
 
     private void OnSyncPositionReceived(ulong userId, Vector3 pos, float yaw)
     {
-        if (!remotePlayers.TryGetValue(userId, out var go)) return;
-        go.GetComponent<RemotePlayer>().SetTarget(pos, yaw);
+        if (!remotePlayers.TryGetValue(userId, out var remote)) return;
+        remote.SetTarget(pos, yaw);
+    }
+
+    // ── Voice audio ───────────────────────────────────────────────────────────
+
+    private void OnVoiceAudioReceived(ulong userId, System.IntPtr data, ulong samplesPerChannel,
+                                      int sampleRate, ulong channels, ref bool outShouldMute)
+    {
+        // Intercept Discord's default output so audio plays only through the
+        // per-player spatial AudioSource on each remote player prefab.
+        outShouldMute = true;
+
+        if (voiceSources.TryGetValue(userId, out var voiceSource))
+            voiceSource.FeedSamples(data, samplesPerChannel, sampleRate, channels);
     }
 
     // ── Spawning ─────────────────────────────────────────────────────────────
@@ -191,14 +222,20 @@ public class GameManager : MonoBehaviour
     {
         if (remotePlayers.ContainsKey(userId)) return;
         var go = Instantiate(remotePlayerPrefab, SpawnPosition(), SpawnRotation());
-        remotePlayers[userId] = go;
+        remotePlayers[userId] = go.GetComponent<RemotePlayer>();
+        var voice = go.GetComponent<VoiceAudioSource>();
+        if (voice != null)
+            voiceSources[userId] = voice;
+        else
+            Debug.LogWarning($"[GameManager] RemotePlayer prefab is missing VoiceAudioSource for userId {userId}");
     }
 
     private void DespawnAllRemotePlayers()
     {
-        foreach (var go in remotePlayers.Values)
-            if (go != null) Destroy(go);
+        foreach (var remote in remotePlayers.Values)
+            if (remote != null) Destroy(remote.gameObject);
         remotePlayers.Clear();
+        voiceSources.Clear();
     }
 
     private Vector3 SpawnPosition() => spawnPoint != null ? spawnPoint.position : Vector3.zero;
