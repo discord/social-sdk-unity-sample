@@ -49,6 +49,8 @@ public class GameManager : MonoBehaviour
         client = DiscordManager.Instance.GetClient();
         lobby = FindFirstObjectByType<Lobby>();
 
+        client.SetDeviceChangeCallback(OnAudioDevicesChanged);
+
         DiscordManager.Instance.OnDiscordStatusChanged += OnStatusChanged;
         DiscordManager.Instance.OnDiscordLobbyMemberAdded += OnLobbyMemberAdded;
         DiscordManager.Instance.OnDiscordLobbyMemberRemoved += OnLobbyMemberRemoved;
@@ -129,6 +131,11 @@ public class GameManager : MonoBehaviour
         if (activeCall != null)
         {
             activeCall.SetVADThreshold(false, -100f);
+            activeCall.SetSpeakingStatusChangedCallback((ulong userId, bool isPlayingSound) =>
+            {
+                if (remotePlayers.TryGetValue(userId, out var remote))
+                    remote.SetSpeaking(isPlayingSound);
+            });
         }
 
         StartCoroutine(SendPositionLoop());
@@ -201,6 +208,14 @@ public class GameManager : MonoBehaviour
 
         if (voiceSources.TryGetValue(userId, out var voiceSource))
             voiceSource.FeedSamples(data, samplesPerChannel, sampleRate, channels);
+    }
+
+    private void OnAudioDevicesChanged(AudioDevice[] inputDevices, AudioDevice[] outputDevices)
+    {
+        foreach (var device in inputDevices)
+            DiscordManager.Instance.OnLog($"[Audio Device] Input: \"{device.Name()}\" id={device.Id()} default={device.IsDefault()}", LoggingSeverity.Warning);
+        foreach (var device in outputDevices)
+            DiscordManager.Instance.OnLog($"[Audio Device] Output: \"{device.Name()}\" id={device.Id()} default={device.IsDefault()}", LoggingSeverity.Warning);
     }
 
     // ── Spawning ─────────────────────────────────────────────────────────────

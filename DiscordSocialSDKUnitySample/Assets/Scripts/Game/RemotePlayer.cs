@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -13,10 +15,14 @@ public class RemotePlayer : MonoBehaviour
     private float _targetYaw;
     private bool _hasData;
 
+    public SpriteRenderer mouthSprite;
+    public List<Sprite> mouthSprites;
+
     void Start()
     {
         _targetPosition = transform.position;
         _targetYaw = transform.eulerAngles.y;
+        mouthSprite.enabled = false;
     }
 
     void Update()
@@ -43,5 +49,37 @@ public class RemotePlayer : MonoBehaviour
         }
         _targetPosition = pos;
         _targetYaw = yaw;
+    }
+
+    /// <summary>
+    /// Called by GameManager when Discord reports this player started or stopped speaking.
+    /// </summary>
+    public void SetSpeaking(bool isSpeaking)
+    {
+        if (isSpeaking)
+            OnSpeakingStart();
+        else
+            OnSpeakingStop();
+    }
+
+    private void OnSpeakingStart()
+    {
+        mouthSprite.enabled = true;
+        StartCoroutine(SpeakingCoroutine());
+    }
+
+    private IEnumerator SpeakingCoroutine()
+    {
+        while (true)
+        {
+            mouthSprite.sprite = mouthSprites[Random.Range(0, mouthSprites.Count)];
+            yield return new WaitForSeconds(0.15f);
+        }
+    }
+
+    private void OnSpeakingStop()
+    {
+        StopAllCoroutines();
+        mouthSprite.enabled = false;
     }
 }

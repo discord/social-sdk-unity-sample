@@ -16,6 +16,9 @@ public class VoiceAudioSource : MonoBehaviour
 {
     private const int SampleRate = 48000;
     private const int RingBufferSamples = SampleRate * 2; // 2-second ring buffer
+    // Target buffer depth: how many samples to keep ahead of the read pointer.
+    // Lower = less latency, but more risk of underrun glitches on a slow machine.
+    private const int TargetBufferSamples = 2400; // 50ms
 
     private float[] _ring;
     private int _writePos;
@@ -72,6 +75,17 @@ public class VoiceAudioSource : MonoBehaviour
         lock (_lock)
         {
             int available = (_writePos - _readPos + RingBufferSamples) % RingBufferSamples;
+
+            // If the buffer has drifted beyond the target depth, skip ahead.
+            // This keeps latency from compounding over the session at the cost
+            // of a brief glitch — better than ever-increasing delay.
+            if (available > TargetBufferSamples)
+            {
+                int excess = available - TargetBufferSamples;
+                _readPos = (_readPos + excess) % RingBufferSamples;
+                available = TargetBufferSamples;
+            }
+
             for (int i = 0; i < data.Length; i++)
             {
                 if (available > 0)

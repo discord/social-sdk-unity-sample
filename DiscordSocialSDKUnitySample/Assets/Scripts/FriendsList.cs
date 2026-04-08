@@ -25,6 +25,7 @@ public class FriendsList : MonoBehaviour
     [SerializeField] private Transform offlineFriendList;
     [SerializeField] private FriendSectionUI offlineFriendSection;
     [SerializeField] private RectTransform mainContentRectTransform;
+    public RectTransform LogTransform;
 
 #if DISCORD_SOCIAL_SDK_EXISTS
     private Dictionary<ulong, GameObject> userHandles = new Dictionary<ulong, GameObject>();
@@ -179,7 +180,6 @@ public class FriendsList : MonoBehaviour
 
     public void ToggleFriendsList()
     {
-        print("Hello");
         if(transform.localScale.x < 0.5f)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
@@ -187,6 +187,18 @@ public class FriendsList : MonoBehaviour
         else
         {
             transform.localScale = new Vector3(0f, 1f, 1f);
+        }
+    }
+
+    public void ToggleLogList()
+    {
+        if(LogTransform.localScale.x < 0.5f)
+        {
+            LogTransform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        else
+        {
+            LogTransform.localScale = new Vector3(0f, 1f, 1f);
         }
     }
 #else

@@ -110,7 +110,7 @@ public class DiscordManager : MonoBehaviour
     public void OnLog(string message, LoggingSeverity severity)
     {
         Debug.Log($"Log: {severity} - {message}");
-        logText.text = $"{severity} - {message}\n" + logText.text;
+        logText.text = $"- {message}\n" + logText.text;
     }
 
     private void OnStatusChanged(Client.Status status, Client.Error error, int errorCode)
