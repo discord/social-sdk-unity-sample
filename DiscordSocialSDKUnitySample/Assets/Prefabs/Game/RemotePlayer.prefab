@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3319765021118759180}
   - component: {fileID: 1100443412001975462}
   - component: {fileID: 5731726275026451298}
-  - component: {fileID: -6603507681013795314}
   - component: {fileID: -5076668465405219811}
+  - component: {fileID: -6603507681013795314}
   m_Layer: 0
   m_Name: RemotePlayer
   m_TagString: Untagged
@@ -79,6 +79,18 @@ MonoBehaviour:
   - {fileID: 1509186045285368620, guid: a7bf38246ba994737b82a675254be7a3, type: 3}
   - {fileID: 3220628360340490107, guid: a7bf38246ba994737b82a675254be7a3, type: 3}
   - {fileID: -1591138769514089575, guid: a7bf38246ba994737b82a675254be7a3, type: 3}
+--- !u!114 &-5076668465405219811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3468695537881686069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74dd0baa800f0461392143b3ad997f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &-6603507681013795314
 AudioSource:
   m_ObjectHideFlags: 0
@@ -176,18 +188,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-5076668465405219811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3468695537881686069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74dd0baa800f0461392143b3ad997f7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4129433803684165622
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,30 +6,30 @@ using UnityEngine;
 /// Receives raw PCM audio from the Discord Social SDK and plays it through a
 /// spatial AudioSource on the same GameObject.
 ///
-/// Call FeedSamples() from the Discord UserAudioReceivedCallback (any thread).
+/// Call FeedSamples() from the Discord UserAudioReceivedCallback.
 /// Unity's audio thread drains the ring buffer via the streaming AudioClip callback.
 ///
-/// Add this component to the RemotePlayer prefab alongside an AudioSource.
+/// Add this component to a remote player GameObject with an AudioSource.
 /// </summary>
 [RequireComponent(typeof(AudioSource))]
 public class VoiceAudioSource : MonoBehaviour
 {
     private const int SampleRate = 48000;
     private const int RingBufferSamples = SampleRate * 2; // 2-second ring buffer
-    // Target buffer depth: how many samples to keep ahead of the read pointer.
-    // Lower = less latency, but more risk of underrun glitches on a slow machine.
-    private const int TargetBufferSamples = 2400; // 50ms
-
-    private float[] _ring;
-    private int _writePos;
-    private int _readPos;
+    private const float PcmNormalizationFactor = 1 / 32768f; // scaling factor for int16 to float conversion
+    private const int FrameSamples = 960; // 20ms at 48kHz
+    private const int MaxChannels = 2;
+    private float[] _ringBuffer;
+    private readonly short[] _shortBuffer = new short[FrameSamples * MaxChannels];
+    private int _writePosition;
+    private int _readPosition;
     private readonly object _lock = new object();
 
     private AudioSource _audioSource;
 
     void Awake()
     {
-        _ring = new float[RingBufferSamples];
+        _ringBuffer = new float[RingBufferSamples];
 
         _audioSource = GetComponent<AudioSource>();
         // Streaming mono clip — OnPCMRead is called by Unity's audio thread to pull samples
@@ -39,19 +39,15 @@ public class VoiceAudioSource : MonoBehaviour
         _audioSource.Play();
     }
 
-    /// <summary>
-    /// Feed raw int16 PCM samples received from the Discord audio callback.
-    /// Thread-safe; may be called from any thread.
-    /// </summary>
-    public void FeedSamples(IntPtr data, ulong samplesPerChannel, int sampleRate, ulong channels)
+    // Feed raw int16 PCM samples received from the Discord audio callback.
+    public void FeedSamples(IntPtr data, ulong samplesPerChannel, ulong channels)
     {
         if (data == IntPtr.Zero || samplesPerChannel == 0) return;
 
-        int chans = (int)channels;
-        int totalSamples = (int)samplesPerChannel * chans;
+        int channelCount = (int)channels;
+        int totalSamples = (int)samplesPerChannel * channelCount;
 
-        short[] shorts = new short[totalSamples];
-        Marshal.Copy(data, shorts, 0, totalSamples);
+        Marshal.Copy(data, _shortBuffer, 0, totalSamples);
 
         lock (_lock)
         {
@@ -59,12 +55,14 @@ public class VoiceAudioSource : MonoBehaviour
             {
                 // Mix down to mono for spatial playback
                 float mono = 0f;
-                for (int c = 0; c < chans; c++)
-                    mono += shorts[i * chans + c] / 32768f;
-                mono /= chans;
+                for (int c = 0; c < channelCount; c++)
+                {
+                    mono += _shortBuffer[i * channelCount + c] * PcmNormalizationFactor;
+                }
+                mono /= channelCount;
 
-                _ring[_writePos] = mono;
-                _writePos = (_writePos + 1) % RingBufferSamples;
+                _ringBuffer[_writePosition] = mono;
+                _writePosition = (_writePosition + 1) % RingBufferSamples;
             }
         }
     }
@@ -74,24 +72,14 @@ public class VoiceAudioSource : MonoBehaviour
     {
         lock (_lock)
         {
-            int available = (_writePos - _readPos + RingBufferSamples) % RingBufferSamples;
-
-            // If the buffer has drifted beyond the target depth, skip ahead.
-            // This keeps latency from compounding over the session at the cost
-            // of a brief glitch — better than ever-increasing delay.
-            if (available > TargetBufferSamples)
-            {
-                int excess = available - TargetBufferSamples;
-                _readPos = (_readPos + excess) % RingBufferSamples;
-                available = TargetBufferSamples;
-            }
+            int available = (_writePosition - _readPosition + RingBufferSamples) % RingBufferSamples;
 
             for (int i = 0; i < data.Length; i++)
             {
                 if (available > 0)
                 {
-                    data[i] = _ring[_readPos];
-                    _readPos = (_readPos + 1) % RingBufferSamples;
+                    data[i] = _ringBuffer[_readPosition];
+                    _readPosition = (_readPosition + 1) % RingBufferSamples;
                     available--;
                 }
                 else

@@ -207,7 +207,7 @@ public class GameManager : MonoBehaviour
         outShouldMute = true;
 
         if (voiceSources.TryGetValue(userId, out var voiceSource))
-            voiceSource.FeedSamples(data, samplesPerChannel, sampleRate, channels);
+            voiceSource.FeedSamples(data, samplesPerChannel, channels);
     }
 
     private void OnAudioDevicesChanged(AudioDevice[] inputDevices, AudioDevice[] outputDevices)
