@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset><contributor><author></author><authoring_tool>FBX COLLADA exporter</authoring_tool><comments></comments></contributor><created>2018-12-27T03:57:05Z</created><keywords></keywords><modified>2018-12-27T03:57:05Z</modified><revision></revision><subject></subject><title></title><unit meter="0.010000" name="centimeter"></unit><up_axis>Y_UP</up_axis></asset>
+  <library_geometries>
+    <geometry id="bark_1-lib" name="bark_1Mesh">
+      <mesh>
+        <source id="bark_1-POSITION">
+          <float_array id="bark_1-POSITION-array" count="36">
+0.000005 -0.000000 53.427837
+-46.267555 0.373869 26.713923
+-46.267560 0.373869 -26.713914
+-0.000005 0.000000 -53.427837
+46.267555 -0.373869 -26.713923
+46.267560 -0.373869 26.713914
+0.913291 73.277203 33.287258
+-39.720805 73.605550 9.825987
+-39.720809 73.605550 -37.096562
+0.913283 73.277203 -60.557841
+41.547379 72.948856 -37.096570
+41.547383 72.948856 9.825980
+</float_array>
+          <technique_common>
+            <accessor source="#bark_1-POSITION-array" count="12" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="bark_1-Normal0">
+          <float_array id="bark_1-Normal0-array" count="180">
+-0.741799 0.212962 0.635910
+-0.935031 0.156913 0.317955
+-0.180070 0.262780 0.947904
+-0.996028 0.089043 0.000000
+-0.996028 0.089043 0.000000
+-0.935031 0.156913 0.317955
+-0.188988 -0.092766 -0.977588
+0.187244 -0.097443 -0.977468
+-0.498976 -0.077764 -0.863120
+0.497436 -0.090152 -0.862804
+0.497436 -0.090152 -0.862804
+0.187244 -0.097443 -0.977468
+0.938471 0.133751 0.318406
+0.746030 0.194699 0.636813
+0.997934 0.064242 -0.000000
+0.184821 0.258318 0.948216
+-0.180070 0.262780 0.947904
+0.746030 0.194699 0.636813
+-0.008080 -0.999967 -0.000000
+-0.008080 -0.999967 0.000000
+-0.008080 -0.999967 -0.000000
+-0.008080 -0.999967 -0.000000
+-0.008080 -0.999967 -0.000000
+-0.008080 -0.999967 -0.000000
+-0.008080 -0.999967 0.000000
+-0.008080 -0.999967 0.000000
+-0.008080 -0.999967 0.000000
+-0.008080 -0.999967 -0.000000
+-0.008080 -0.999967 0.000000
+-0.008080 -0.999967 0.000000
+0.008080 0.999967 0.000000
+0.008080 0.999967 -0.000000
+0.008080 0.999967 -0.000000
+0.008080 0.999967 -0.000000
+0.008080 0.999967 0.000000
+0.008080 0.999967 -0.000000
+0.008080 0.999967 0.000000
+0.008080 0.999967 0.000000
+0.008080 0.999967 -0.000000
+0.008080 0.999967 0.000000
+0.008080 0.999967 0.000000
+0.008080 0.999967 0.000000
+0.184821 0.258318 0.948216
+-0.741799 0.212962 0.635910
+-0.180070 0.262780 0.947904
+-0.741799 0.212962 0.635910
+-0.996028 0.089043 0.000000
+-0.935031 0.156913 0.317955
+-0.498976 -0.077764 -0.863120
+-0.188988 -0.092766 -0.977588
+-0.498976 -0.077764 -0.863120
+-0.188988 -0.092766 -0.977588
+0.497436 -0.090152 -0.862804
+0.187244 -0.097443 -0.977468
+0.997934 0.064242 -0.000000
+0.938471 0.133751 0.318406
+0.997934 0.064242 -0.000000
+0.938471 0.133751 0.318406
+0.184821 0.258318 0.948216
+0.746030 0.194699 0.636813
+</float_array>
+          <technique_common>
+            <accessor source="#bark_1-Normal0-array" count="60" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="bark_1-UV0">
+          <float_array id="bark_1-UV0-array" count="54">
+0.307171 0.971227
+0.268754 0.518372
+0.330374 0.517757
+0.307171 0.971227
+0.268754 0.518372
+0.334899 0.970950
+0.330374 0.517757
+0.362628 0.970673
+0.391994 0.517141
+0.362628 0.970673
+0.391994 0.517141
+0.334899 0.970950
+0.467969 0.586328
+0.405469 0.586328
+0.405469 0.523828
+0.467969 0.586328
+0.405469 0.586328
+0.467969 0.586328
+0.405469 0.586328
+0.405469 0.523828
+0.405469 0.586328
+0.277848 0.419741
+0.034142 0.279030
+0.155995 0.208674
+0.277848 0.279030
+0.034142 0.419741
+0.155995 0.490096
+</float_array>
+          <technique_common>
+            <accessor source="#bark_1-UV0-array" count="27" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="bark_1-VERTEX">
+          <input semantic="POSITION" source="#bark_1-POSITION"/>
+        </vertices>
+        <triangles count="20"><input semantic="VERTEX" offset="0" source="#bark_1-VERTEX"/><input semantic="NORMAL" offset="1" source="#bark_1-Normal0"/><input semantic="TEXCOORD" offset="2" set="0" source="#bark_1-UV0"/><p> 7 0 0 1 1 1 0 2 2 8 3 3 2 4 4 1 5 1 9 6 5 3 7 6 2 8 4 10 9 7 4 10 8 3 11 6 11 12 9 5 13 10 4 14 8 6 15 11 0 16 2 5 17 10 1 18 12 4 19 13 5 20 14 0 21 15 1 22 16 5 23 14 2 24 17 3 25 18 4 26 19 1 27 12 2 28 20 4 29 19 10 30 21 7 31 22 6 32 23 11 33 24 10 34 21 6 35 23 10 36 21 8 37 25 7 38 22 10 39 21 9 40 26 8 41 25 6 42 11 7 43 0 0 44 2 7 45 0 8 46 3 1 47 1 8 48 3 9 49 5 2 50 4 9 51 5 10 52 7 3 53 6 10 54 7 11 55 9 4 56 8 11 57 9 6 58 11 5 59 10</p></triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="" name="">
+      <node name="treeTall05" id="treeTall05" sid="treeTall05"><matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra><node name="bark_1" id="bark_1" sid="bark_1"><matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#bark_1-lib"/><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node></node>
+      <extra><technique profile="MAX3D"><frame_rate>30.000000</frame_rate></technique><technique profile="FCOLLADA"><start_time>0.000000</start_time><end_time>1.000000</end_time></technique></extra>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#"></instance_visual_scene>
+  </scene>
+</COLLADA>

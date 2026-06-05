@@ -71,6 +71,7 @@ public class DiscordManager : MonoBehaviour
         }
 
         client = new Client();
+        client.SetNoiseCancellation(true);
 
         client.AddLogCallback(OnLog, LoggingSeverity.Warning);
         client.SetStatusChangedCallback(OnStatusChanged);

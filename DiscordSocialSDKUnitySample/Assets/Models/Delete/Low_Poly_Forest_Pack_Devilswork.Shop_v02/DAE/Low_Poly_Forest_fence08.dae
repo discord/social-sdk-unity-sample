@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset><contributor><author></author><authoring_tool>FBX COLLADA exporter</authoring_tool><comments></comments></contributor><created>2018-12-27T03:57:02Z</created><keywords></keywords><modified>2018-12-27T03:57:02Z</modified><revision></revision><subject></subject><title></title><unit meter="0.010000" name="centimeter"></unit><up_axis>Y_UP</up_axis></asset>
+  <library_geometries>
+    <geometry id="fence08-lib" name="fence08Mesh">
+      <mesh>
+        <source id="fence08-POSITION">
+          <float_array id="fence08-POSITION-array" count="24">
+10.943706 -17.193525 6.037753
+10.943706 91.925225 6.037753
+-10.785084 -17.193525 6.037753
+-10.785084 91.925225 6.037753
+-10.785084 -17.193525 -6.037753
+-10.785084 91.925225 -6.037753
+10.943706 -17.193525 -6.037753
+10.943706 91.925225 -6.037753
+</float_array>
+          <technique_common>
+            <accessor source="#fence08-POSITION-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="fence08-Normal0">
+          <float_array id="fence08-Normal0-array" count="108">
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 -1.000000 0.000000
+0.000000 -1.000000 0.000000
+0.000000 -1.000000 0.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+0.000000 -1.000000 0.000000
+0.000000 -1.000000 0.000000
+0.000000 -1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#fence08-Normal0-array" count="36" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="fence08-UV0">
+          <float_array id="fence08-UV0-array" count="36">
+0.608194 0.106240
+0.608194 0.021824
+0.523779 0.021824
+0.608194 0.106240
+0.608194 0.021824
+0.523779 0.021824
+0.170809 0.006369
+0.212941 0.006369
+0.181349 0.418737
+0.212941 0.388929
+0.191889 0.448546
+0.170809 0.006369
+0.181349 0.418737
+0.212941 0.006369
+0.191889 0.448546
+0.212941 0.388929
+0.523779 0.106240
+0.523779 0.106240
+</float_array>
+          <technique_common>
+            <accessor source="#fence08-UV0-array" count="18" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="fence08-VERTEX">
+          <input semantic="POSITION" source="#fence08-POSITION"/>
+        </vertices>
+        <triangles count="12"><input semantic="VERTEX" offset="0" source="#fence08-VERTEX"/><input semantic="NORMAL" offset="1" source="#fence08-Normal0"/><input semantic="TEXCOORD" offset="2" set="0" source="#fence08-UV0"/><p> 1 0 0 0 1 1 6 2 2 5 3 3 4 4 4 2 5 5 2 6 6 0 7 7 3 8 8 0 9 7 1 10 9 3 11 10 4 12 11 5 13 12 6 14 13 0 15 7 2 16 6 4 17 11 5 18 14 7 19 15 6 20 13 1 21 9 7 22 15 5 23 14 7 24 16 1 25 0 6 26 2 3 27 17 5 28 3 2 29 5 6 30 13 0 31 7 4 32 11 3 33 10 1 34 9 5 35 14</p></triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="" name="">
+      <node name="fence08" id="fence08" sid="fence08"><matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#fence08-lib"/><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+      <extra><technique profile="MAX3D"><frame_rate>30.000000</frame_rate></technique><technique profile="FCOLLADA"><start_time>0.000000</start_time><end_time>1.000000</end_time></technique></extra>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#"></instance_visual_scene>
+  </scene>
+</COLLADA>

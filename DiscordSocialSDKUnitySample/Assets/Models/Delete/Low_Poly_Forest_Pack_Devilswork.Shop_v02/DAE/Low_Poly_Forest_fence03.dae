@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset><contributor><author></author><authoring_tool>FBX COLLADA exporter</authoring_tool><comments></comments></contributor><created>2018-12-27T03:57:02Z</created><keywords></keywords><modified>2018-12-27T03:57:02Z</modified><revision></revision><subject></subject><title></title><unit meter="0.010000" name="centimeter"></unit><up_axis>Y_UP</up_axis></asset>
+  <library_geometries>
+    <geometry id="fence03-lib" name="fence03Mesh">
+      <mesh>
+        <source id="fence03-POSITION">
+          <float_array id="fence03-POSITION-array" count="30">
+10.943706 -17.193525 6.037753
+10.943706 91.925225 6.037753
+-10.785084 -17.193525 6.037753
+-10.785084 91.925225 6.037753
+-10.785084 -17.193525 -6.037753
+-10.785084 91.925225 -6.037753
+10.943706 -17.193525 -6.037753
+10.943706 91.925225 -6.037753
+0.086700 106.250752 6.037753
+0.086700 106.250752 -6.037753
+</float_array>
+          <technique_common>
+            <accessor source="#fence03-POSITION-array" count="10" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="fence03-Normal0">
+          <float_array id="fence03-Normal0-array" count="144">
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+-0.796580 0.604533 0.000000
+-0.796580 0.604533 0.000000
+-0.796580 0.604533 0.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 -1.000000 0.000000
+0.000000 -1.000000 0.000000
+0.000000 -1.000000 0.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.796976 0.604011 0.000000
+0.796976 0.604011 0.000000
+0.796976 0.604011 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+-0.796580 0.604533 0.000000
+-0.796580 0.604533 0.000000
+-0.796580 0.604533 0.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 -1.000000 0.000000
+0.000000 -1.000000 0.000000
+0.000000 -1.000000 0.000000
+0.796976 0.604011 0.000000
+0.796976 0.604011 0.000000
+0.796976 0.604011 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#fence03-Normal0-array" count="48" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="fence03-UV0">
+          <float_array id="fence03-UV0-array" count="36">
+0.615823 0.611222
+0.615823 0.526806
+0.531407 0.526806
+0.178437 0.893911
+0.178437 0.893911
+0.199517 0.953528
+0.220569 0.511351
+0.220569 0.893911
+0.199517 0.953528
+0.220569 0.511351
+0.178437 0.511351
+0.178437 0.511351
+0.220569 0.893911
+0.615823 0.611222
+0.615823 0.526806
+0.531407 0.526806
+0.531407 0.611222
+0.531407 0.611222
+</float_array>
+          <technique_common>
+            <accessor source="#fence03-UV0-array" count="18" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="fence03-VERTEX">
+          <input semantic="POSITION" source="#fence03-POSITION"/>
+        </vertices>
+        <triangles count="16"><input semantic="VERTEX" offset="0" source="#fence03-VERTEX"/><input semantic="NORMAL" offset="1" source="#fence03-Normal0"/><input semantic="TEXCOORD" offset="2" set="0" source="#fence03-UV0"/><p> 1 0 0 0 1 1 6 2 2 5 3 3 3 4 4 8 5 5 0 6 6 8 7 5 3 8 4 0 9 6 1 10 7 8 11 5 5 12 3 9 13 8 6 14 9 0 15 6 2 16 10 4 17 11 9 18 8 7 19 12 6 20 9 1 21 7 7 22 12 9 23 8 5 24 13 4 25 14 2 26 15 7 27 16 1 28 0 6 29 2 9 30 8 5 31 3 8 32 5 2 33 10 0 34 6 3 35 4 4 36 11 5 37 3 6 38 9 6 39 9 0 40 6 4 41 11 8 42 5 1 43 7 9 44 8 3 45 17 5 46 13 2 47 15</p></triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="" name="">
+      <node name="fence03" id="fence03" sid="fence03"><matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#fence03-lib"/><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+      <extra><technique profile="MAX3D"><frame_rate>30.000000</frame_rate></technique><technique profile="FCOLLADA"><start_time>0.000000</start_time><end_time>1.000000</end_time></technique></extra>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#"></instance_visual_scene>
+  </scene>
+</COLLADA>
