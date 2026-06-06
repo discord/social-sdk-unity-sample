@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Concurrent;
 using System.Net.WebSockets;
 using System.Text;
@@ -7,35 +8,111 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 /// <summary>
-/// Manages a WebSocket connection to the position-sync server.
-/// Call Connect() after joining a lobby and Disconnect() when leaving.
-/// Sends position updates via SendPosition(); fires events on the main thread
-/// when the server pushes welcome / player-joined / player-left / position messages.
+/// Owns position networking end-to-end:
+///   - subscribes to GameManager.OnLobbyJoined / OnLobbyLeft so it knows
+///     when to connect and disconnect from the position-sync WebSocket server
+///   - drives the send loop using GameManager.LocalPlayerTransform
+///   - routes incoming positions onto each remote player via
+///     GameManager.GetRemotePlayer(userId).SetTarget(...)
 ///
-/// Attach this component to any persistent GameObject and assign it to GameManager
-/// via the Inspector. Set the Server URL field to your deployed server's wss:// address.
+/// This is *separate* from the Discord Social SDK and intentionally lives in
+/// its own file — GameManager stays pure Social-SDK code so the proximity-audio
+/// demo can be live-coded without this noise.
+///
+/// Drop this component on any persistent GameObject in the scene and set the
+/// Server URL in the Inspector.
 /// </summary>
 public class PositionSyncClient : MonoBehaviour
 {
     [Tooltip("WebSocket URL of the position sync server")]
     [SerializeField] private string serverUrl = "wss://dungeon-delvers-3d.onrender.com";
 
+    [Tooltip("How often (seconds) the local player's position is sent to the server.")]
+    [SerializeField] private float positionSendInterval = 0.1f;
+
     private ClientWebSocket _ws;
     private CancellationTokenSource _cts;
     private readonly ConcurrentQueue<string> _receiveQueue = new();
     private readonly SemaphoreSlim _sendLock = new(1, 1);
+    private Coroutine _sendLoop;
 
     public bool IsConnected => _ws?.State == WebSocketState.Open;
 
-    // ── Events (dispatched on the Unity main thread in Update) ────────────────
-    public event Action<PlayerState[]> OnWelcome;
-    public event Action<ulong> OnPlayerJoined;
-    public event Action<ulong> OnPlayerLeft;
-    public event Action<ulong, Vector3, float> OnPositionReceived;
+    // ── Unity lifecycle ───────────────────────────────────────────────────────
 
-    // ── Public API ────────────────────────────────────────────────────────────
+    void Start()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnLobbyJoined += OnLobbyJoined;
+            GameManager.Instance.OnLobbyLeft += OnLobbyLeft;
+        }
+    }
 
-    public async void Connect(string roomId, ulong userId)
+    void OnDestroy()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnLobbyJoined -= OnLobbyJoined;
+            GameManager.Instance.OnLobbyLeft -= OnLobbyLeft;
+        }
+        Disconnect();
+    }
+
+    void Update()
+    {
+        while (_receiveQueue.TryDequeue(out var json))
+            ProcessMessage(json);
+    }
+
+    // ── Lobby orchestration ───────────────────────────────────────────────────
+
+    private void OnLobbyJoined(ulong lobbyId, string secret)
+    {
+        Connect(secret, GameManager.Instance.MyUserId);
+        _sendLoop = StartCoroutine(SendPositionLoop());
+    }
+
+    private void OnLobbyLeft()
+    {
+        if (_sendLoop != null) StopCoroutine(_sendLoop);
+        _sendLoop = null;
+        Disconnect();
+    }
+
+    private IEnumerator SendPositionLoop()
+    {
+        var wait = new WaitForSeconds(positionSendInterval);
+        while (GameManager.Instance != null && GameManager.Instance.IsInLobby)
+        {
+            var t = GameManager.Instance.LocalPlayerTransform;
+            if (t != null && IsConnected)
+                SendPosition(t.position, t.eulerAngles.y);
+            yield return wait;
+        }
+    }
+
+    private void HandleWelcome(PlayerState[] players)
+    {
+        if (GameManager.Instance == null) return;
+        foreach (var p in players)
+        {
+            if (!ulong.TryParse(p.userId, out var uid)) continue;
+            var remote = GameManager.Instance.GetRemotePlayer(uid);
+            if (remote != null) remote.SetTarget(new Vector3(p.x, p.y, p.z), p.yaw);
+        }
+    }
+
+    private void HandlePositionReceived(ulong userId, Vector3 pos, float yaw)
+    {
+        if (GameManager.Instance == null) return;
+        var remote = GameManager.Instance.GetRemotePlayer(userId);
+        if (remote != null) remote.SetTarget(pos, yaw);
+    }
+
+    // ── WebSocket transport ───────────────────────────────────────────────────
+
+    private async void Connect(string roomId, ulong userId)
     {
         if (IsConnected) return;
         if (string.IsNullOrEmpty(serverUrl) || serverUrl.Contains("your-app"))
@@ -67,7 +144,7 @@ public class PositionSyncClient : MonoBehaviour
         }
     }
 
-    public async void Disconnect()
+    private async void Disconnect()
     {
         _cts?.Cancel();
         if (_ws != null && _ws.State == WebSocketState.Open)
@@ -80,7 +157,7 @@ public class PositionSyncClient : MonoBehaviour
         Debug.Log("[PositionSyncClient] Disconnected");
     }
 
-    public void SendPosition(Vector3 pos, float yaw)
+    private void SendPosition(Vector3 pos, float yaw)
     {
         if (!IsConnected) return;
         _ = SendRaw(JsonUtility.ToJson(new PosMsg
@@ -89,18 +166,6 @@ public class PositionSyncClient : MonoBehaviour
             x = pos.x, y = pos.y, z = pos.z, yaw = yaw
         }));
     }
-
-    // ── Unity lifecycle ───────────────────────────────────────────────────────
-
-    void Update()
-    {
-        while (_receiveQueue.TryDequeue(out var json))
-            ProcessMessage(json);
-    }
-
-    void OnDestroy() => Disconnect();
-
-    // ── Internal ─────────────────────────────────────────────────────────────
 
     private async Task ReceiveLoop()
     {
@@ -162,19 +227,11 @@ public class PositionSyncClient : MonoBehaviour
         switch (msg.type)
         {
             case "welcome":
-                OnWelcome?.Invoke(msg.players ?? Array.Empty<PlayerState>());
-                break;
-            case "joined":
-                if (ulong.TryParse(msg.userId, out var joinedId))
-                    OnPlayerJoined?.Invoke(joinedId);
-                break;
-            case "left":
-                if (ulong.TryParse(msg.userId, out var leftId))
-                    OnPlayerLeft?.Invoke(leftId);
+                HandleWelcome(msg.players ?? Array.Empty<PlayerState>());
                 break;
             case "position":
                 if (ulong.TryParse(msg.userId, out var posId))
-                    OnPositionReceived?.Invoke(posId, new Vector3(msg.x, msg.y, msg.z), msg.yaw);
+                    HandlePositionReceived(posId, new Vector3(msg.x, msg.y, msg.z), msg.yaw);
                 break;
         }
     }

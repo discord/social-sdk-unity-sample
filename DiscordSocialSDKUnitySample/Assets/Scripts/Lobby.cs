@@ -1,156 +1,27 @@
 using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
-
-
-#if DISCORD_SOCIAL_SDK_EXISTS
-using Discord.Sdk;
-#endif
 
 /// <summary>
-/// Lobby handles creating, joining, and leaving Discord Lobbies. Through the UI the player can create or leave a lobby.
-/// Joining a lobby directly happens through invites and Rich Presence.
+/// Thin compatibility shim. All real lobby logic lives in <see cref="GameManager"/>
+/// so the proximity-audio demo can be live-coded from one file. Existing scene
+/// wiring (Invite, LobbyInviteModal) still calls into this class; it just
+/// forwards to the GameManager singleton.
 /// </summary>
 public class Lobby : MonoBehaviour
 {
-    [SerializeField] private Button createLobbyButton;
-    [SerializeField] private Button leaveLobbyButton;
-    [SerializeField] private int maxLobbySize = 4;
-    private string lobbySecret = string.Empty;
-    private ulong currentLobby = 0;
+    public bool IsInLobby() =>
+        GameManager.Instance != null && GameManager.Instance.IsInLobby;
 
-    public delegate void LobbyJoinedHandler(ulong lobbyId, string secret);
-    public event LobbyJoinedHandler OnLobbyJoined;
+    public ulong GetCurrentLobbyId() =>
+        GameManager.Instance != null ? GameManager.Instance.CurrentLobbyId : 0;
 
-    public delegate void LobbyLeftHandler();
-    public event LobbyLeftHandler OnLobbyLeft;
-
-    public string GetLobbySecret() => lobbySecret;
-
-#if DISCORD_SOCIAL_SDK_EXISTS
-    private Client client;
-    private RichPresence richPresence;
-
-    void Start()
-    {
-        richPresence = FindFirstObjectByType<RichPresence>();
-
-        client = DiscordManager.Instance.GetClient();
-        DiscordManager.Instance.OnDiscordStatusChanged += OnStatusChanged;
-        DiscordManager.Instance.OnDiscordSetActivityJoinCallback += OnSetActivityJoinCallback;
-
-        createLobbyButton.onClick.AddListener(CreateLobby);
-        leaveLobbyButton.onClick.AddListener(LeaveLobby);
-
-        createLobbyButton.gameObject.SetActive(false);
-        leaveLobbyButton.gameObject.SetActive(false);
-    }
-
-    void OnDestroy()
-    {
-        if(client != null)
-        {
-            client.LeaveLobby(currentLobby, (ClientResult result) => { });
-        }
-    }
-
-    public bool IsInLobby()
-    {
-        return lobbySecret != string.Empty;
-    }
-
-    public ulong GetCurrentLobbyId()
-    {
-        return currentLobby;
-    }
-
-    private void OnStatusChanged(Client.Status status, Client.Error error, int errorCode)
-    {
-        if (status == Client.Status.Ready)
-        {
-            createLobbyButton.gameObject.SetActive(true);
-        }
-    }
-
-    private void OnSetActivityJoinCallback(string secret)
-    {
-        DiscordManager.Instance.OnLog("Received join activity callback with secret: " + secret, LoggingSeverity.Warning);
-        JoinLobby(secret);
-    }
-
-    private void CreateLobby()
-    {
-        DiscordManager.Instance.OnLog("Created lobby " + lobbySecret, LoggingSeverity.Warning);
-        StopAllCoroutines();
-        createLobbyButton.gameObject.SetActive(false);
-        lobbySecret = System.Guid.NewGuid().ToString();
-        client.CreateOrJoinLobby(lobbySecret, OnCreateOrJoinLobby);
-    }
+    public string GetLobbySecret() =>
+        GameManager.Instance != null ? GameManager.Instance.LobbySecret : string.Empty;
 
     public void JoinLobby(string lobbySecret)
     {
-        DiscordManager.Instance.OnLog("Joined lobby " + lobbySecret, LoggingSeverity.Warning);
-        createLobbyButton.gameObject.SetActive(false);
-        this.lobbySecret = lobbySecret;
-        client.CreateOrJoinLobby(this.lobbySecret, OnCreateOrJoinLobby);
-    }
-
-    private void OnCreateOrJoinLobby(ClientResult clientResult, ulong lobbyId)
-    {
-        if (clientResult.Successful())
-        {
-            currentLobby = lobbyId;
-
-            leaveLobbyButton.gameObject.SetActive(true);
-
-            if(richPresence != null)
-            {
-                richPresence.UpdateRichPresenceLobby(ActivityTypes.Playing, "In Lobby", "Waiting for players", lobbySecret, lobbyId.ToString(), maxLobbySize);
-            }
-
-            OnLobbyJoined?.Invoke(lobbyId, lobbySecret);
-
-            Debug.Log($"Successfully created or joined lobby {lobbyId}");
-        }
-        else
-        {
-            createLobbyButton.gameObject.SetActive(true);
-
-            Debug.LogError($"Failed to create or join lobby: {clientResult}");
-        }
-    }
-
-    private void LeaveLobby()
-    {
-        leaveLobbyButton.gameObject.SetActive(false);
-
-        client.LeaveLobby(currentLobby, OnLeaveLobby);
-    }
-
-    private void OnLeaveLobby(ClientResult clientResult)
-    {
-        if (clientResult.Successful())
-        {
-            Debug.Log($"Successfully left lobby {currentLobby}");
-
-            currentLobby = 0;
-            lobbySecret = string.Empty;
-
-            createLobbyButton.gameObject.SetActive(true);
-
-            OnLobbyLeft?.Invoke();
-
-            if(richPresence != null)
-            {
-                richPresence.SetDefaultRichPresence();
-            }
-        }
-        else
-        {
-            leaveLobbyButton.gameObject.SetActive(true);
-
-            Debug.LogError($"Failed to leave lobby: {clientResult}");
-        }
-    }
+#if DISCORD_SOCIAL_SDK_EXISTS
+        if (GameManager.Instance != null)
+            GameManager.Instance.JoinLobby(lobbySecret);
 #endif
+    }
 }
