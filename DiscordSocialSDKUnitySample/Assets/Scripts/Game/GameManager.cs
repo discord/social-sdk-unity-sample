@@ -2,26 +2,8 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-#if DISCORD_SOCIAL_SDK_EXISTS
 using Discord.Sdk;
-#endif
 
-/// <summary>
-/// One-stop manager for the proximity-audio demo. Walks top-to-bottom through:
-///   1. Creating / joining / leaving a Discord lobby
-///   2. Spawning local + remote player prefabs from lobby membership
-///   3. Starting the Discord voice call and routing per-user audio into a
-///      spatial AudioSource on each remote player (this is what makes the
-///      audio proximity-based instead of a flat 2-channel mix).
-///
-/// External companions:
-///   - Lobby.cs is a thin shim that forwards into this script for existing
-///     scene wiring (Invite, LobbyInviteModal).
-///   - PositionSyncClient.cs owns the WebSocket position-sync orchestration
-///     by subscribing to OnLobbyJoined / OnLobbyLeft and reading
-///     LocalPlayerTransform / GetRemotePlayer from here.
-/// </summary>
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
@@ -67,13 +49,10 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
-#if DISCORD_SOCIAL_SDK_EXISTS
     private Client client;
     private RichPresence richPresence;
     private Call activeCall;
     private readonly ConcurrentDictionary<ulong, VoiceAudioSource> voiceSources = new();
-
-    // ── Setup ─────────────────────────────────────────────────────────────────
 
     void Start()
     {
@@ -119,12 +98,9 @@ public class GameManager : MonoBehaviour
         createLobbyButton.gameObject.SetActive(true);
     }
 
-    // ── 1. Creating / joining / leaving a lobby ──────────────────────────────
-
     private void CreateLobby()
     {
         lobbySecret = System.Guid.NewGuid().ToString();
-        DiscordManager.Instance.OnLog($"Creating lobby {lobbySecret}", LoggingSeverity.Warning);
         createLobbyButton.gameObject.SetActive(false);
         client.CreateOrJoinLobby(lobbySecret, OnCreateOrJoinLobby);
     }
@@ -132,22 +108,15 @@ public class GameManager : MonoBehaviour
     public void JoinLobby(string secret)
     {
         lobbySecret = secret;
-        DiscordManager.Instance.OnLog($"Joining lobby {secret}", LoggingSeverity.Warning);
         createLobbyButton.gameObject.SetActive(false);
         client.CreateOrJoinLobby(lobbySecret, OnCreateOrJoinLobby);
     }
 
-    private void OnSetActivityJoinCallback(string secret)
-    {
-        DiscordManager.Instance.OnLog($"Activity-join callback received secret {secret}", LoggingSeverity.Warning);
-        JoinLobby(secret);
-    }
-
     private void OnCreateOrJoinLobby(ClientResult result, ulong lobbyId)
     {
-        if (!result.Successful())
+        if(!result.Successful())
         {
-            Debug.LogError($"Failed to create or join lobby: {result}");
+            Debug.LogError("Lobby creation or join was unsuccessful");
             createLobbyButton.gameObject.SetActive(true);
             return;
         }
@@ -155,26 +124,20 @@ public class GameManager : MonoBehaviour
         currentLobbyId = lobbyId;
         leaveLobbyButton.gameObject.SetActive(true);
 
-        if (richPresence != null)
-        {
-            richPresence.UpdateRichPresenceLobby(
-                ActivityTypes.Playing, "In Lobby", "Waiting for players",
-                lobbySecret, lobbyId.ToString(), maxLobbySize);
-        }
+        richPresence.UpdateRichPresenceLobby(ActivityTypes.Playing, "In Lobby", "Waiting for friends", lobbySecret, lobbyId.ToString(), maxLobbySize);
 
         SpawnLocalPlayer();
-
-        // Anyone already in the lobby when we joined needs a remote prefab too.
-        var lobbyHandle = client.GetLobbyHandle(lobbyId);
-        if (lobbyHandle != null)
-        {
-            foreach (var memberId in lobbyHandle.LobbyMemberIds())
-                if (memberId != myUserId) SpawnRemotePlayer(memberId);
-        }
+        SpawnExistingRemotePlayers(lobbyId);
 
         StartAudioCall();
 
         OnLobbyJoined?.Invoke(lobbyId, lobbySecret);
+    }
+
+    private void OnSetActivityJoinCallback(string secret)
+    {
+        DiscordManager.Instance.OnLog($"Activity-join callback received secret {secret}", LoggingSeverity.Warning);
+        JoinLobby(secret);
     }
 
     private void LeaveLobby()
@@ -215,8 +178,6 @@ public class GameManager : MonoBehaviour
         OnLobbyLeft?.Invoke();
     }
 
-    // ── 2. Spawning players from lobby membership ────────────────────────────
-
     private void OnLobbyMemberAdded(ulong lobbyId, ulong userId)
     {
         if (lobbyId != currentLobbyId) return;
@@ -252,6 +213,17 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning($"[GameManager] RemotePlayer prefab missing VoiceAudioSource for userId {userId}");
     }
 
+    private void SpawnExistingRemotePlayers(ulong lobbyId)
+    {
+        // Anyone already in the lobby when we joined needs a remote prefab too.
+        var lobbyHandle = client.GetLobbyHandle(lobbyId);
+        if (lobbyHandle != null)
+        {
+            foreach (var memberId in lobbyHandle.LobbyMemberIds())
+                if (memberId != myUserId) SpawnRemotePlayer(memberId);
+        }
+    }
+
     private void DespawnLocalPlayer()
     {
         if (localPlayerObj == null) return;
@@ -270,37 +242,25 @@ public class GameManager : MonoBehaviour
     private Vector3 SpawnPosition() => spawnPoint != null ? spawnPoint.position : Vector3.zero;
     private Quaternion SpawnRotation() => spawnPoint != null ? spawnPoint.rotation : Quaternion.identity;
 
-    // ── 3. Audio call + per-player spatial routing ───────────────────────────
-
     private void StartAudioCall()
     {
-        // The first callback is the user-audio receiver — Discord hands us raw int16 PCM
-        // per remote user on its audio thread. The second is for our own captured mic
-        // audio, which we don't need to inspect for this demo.
-        activeCall = client.StartCallWithAudioCallbacks(
-            currentLobbyId,
-            OnVoiceAudioReceived,
-            (data, samplesPerChannel, sampleRate, channels) => { });
+        activeCall = client.StartCallWithAudioCallbacks(currentLobbyId, OnVoiceAudioReceived, (data, samplesPerChannel, sampleRate, channels) => { });
 
-        if (activeCall == null) return;
-
-        // VAD off (threshold -100 dB ≈ always-on). Unity's spatial AudioSource
-        // will attenuate quiet/distant players naturally — we don't want Discord's
-        // voice-activity gate cutting samples before they reach the spatializer.
-        activeCall.SetVADThreshold(false, -100f);
-
-        // Free side-benefit of having the call running: trigger mouth animation
-        // on each RemotePlayer while their audio energy crosses Discord's threshold.
-        activeCall.SetSpeakingStatusChangedCallback((ulong userId, bool isPlayingSound) =>
+        if (activeCall == null)
         {
-            if (remotePlayers.TryGetValue(userId, out var remote))
-                remote.SetSpeaking(isPlayingSound);
-        });
+            Debug.LogWarning("Unable to create call");
+            return;
+        }
+
+        activeCall.SetVADThreshold(false, -100f);
     }
 
     private void EndAudioCall()
     {
-        if (activeCall == null) return;
+        if(activeCall == null)
+        {
+            return;
+        }
         client.EndCall(currentLobbyId, () => { });
         activeCall = null;
     }
@@ -309,13 +269,12 @@ public class GameManager : MonoBehaviour
     private void OnVoiceAudioReceived(ulong userId, System.IntPtr data, ulong samplesPerChannel,
                                       int sampleRate, ulong channels, ref bool outShouldMute)
     {
-        // THE proximity-audio line: mute Discord's default 2-channel playback so the
-        // only path this audio takes is through the per-player spatial AudioSource
-        // below. Without this you'd hear two copies — flat + spatial — and lose proximity.
         outShouldMute = true;
 
-        if (voiceSources.TryGetValue(userId, out var voiceSource))
+        if(voiceSources.TryGetValue(userId, out var voiceSource))
+        {
             voiceSource.FeedSamples(data, samplesPerChannel, channels);
+        }
     }
 
     private void OnAudioDevicesChanged(AudioDevice[] inputDevices, AudioDevice[] outputDevices)
@@ -325,5 +284,4 @@ public class GameManager : MonoBehaviour
         foreach (var device in outputDevices)
             DiscordManager.Instance.OnLog($"[Audio Device] Output: \"{device.Name()}\" id={device.Id()} default={device.IsDefault()}", LoggingSeverity.Warning);
     }
-#endif
 }
