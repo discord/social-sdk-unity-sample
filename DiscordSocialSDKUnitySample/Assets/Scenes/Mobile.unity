@@ -441,7 +441,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: -12}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 96.81, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &161652631
 MonoBehaviour:
@@ -16458,7 +16458,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 461356635482547732, guid: 78ee1a6c8deab471e94fb59852089e03, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 35
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 461356635482547732, guid: 78ee1a6c8deab471e94fb59852089e03, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 560
+      objectReference: {fileID: 0}
+    - target: {fileID: 461356635482547732, guid: 78ee1a6c8deab471e94fb59852089e03, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 4254533975551233291, guid: 78ee1a6c8deab471e94fb59852089e03, type: 3}
       propertyPath: m_AnchorMax.y
@@ -16474,7 +16482,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4254533975551233291, guid: 78ee1a6c8deab471e94fb59852089e03, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 35
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254533975551233291, guid: 78ee1a6c8deab471e94fb59852089e03, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 560
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254533975551233291, guid: 78ee1a6c8deab471e94fb59852089e03, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 5142916900648116922, guid: 78ee1a6c8deab471e94fb59852089e03, type: 3}
       propertyPath: m_Pivot.x
@@ -18694,6 +18710,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2272347704722295321, guid: 5a0adccc665a64b2098e3ee336818383, type: 3}
+      propertyPath: friendUIPrefab
+      value: 
+      objectReference: {fileID: 6281879037424312494, guid: 08d5bef4757cf41299c6afa661c4e622, type: 3}
     - target: {fileID: 2282435860931746187, guid: 5a0adccc665a64b2098e3ee336818383, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
