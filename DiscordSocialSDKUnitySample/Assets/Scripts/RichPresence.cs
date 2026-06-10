@@ -58,7 +58,7 @@ public class RichPresence : MonoBehaviour
         UpdateRichPresence(ActivityTypes.Playing, startState, startDetails);
     }
 
-    public void UpdateRichPresenceLobby(ActivityTypes type, string state, string details, string lobbySecret, string lobbyId, int maxPartySize)
+    public void UpdateRichPresenceWithLobby(ActivityTypes type, string state, string details, string lobbySecret, string lobbyId, int maxPartySize)
     {
         Activity activity = new Activity();
 

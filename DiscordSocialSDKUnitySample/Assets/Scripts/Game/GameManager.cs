@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
         currentLobbyId = lobbyId;
         leaveLobbyButton.gameObject.SetActive(true);
 
-        richPresence.UpdateRichPresenceLobby(ActivityTypes.Playing, "In Lobby", "Waiting for friends", lobbySecret, lobbyId.ToString(), maxLobbySize);
+        richPresence.UpdateRichPresenceWithLobby(ActivityTypes.Playing, "In Lobby", "Waiting for friends", lobbySecret, lobbyId.ToString(), maxLobbySize);
 
         SpawnLocalPlayer();
         SpawnExistingRemotePlayers(lobbyId);
