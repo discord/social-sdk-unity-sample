@@ -97,6 +97,19 @@ If nothing happens when you click the "Connect to Discord" button, make sure you
 #### Opening Project in Non-Matching Editor Installation
 You'll see this warning if you open the project in a different version of Unity than it was created with. It's safe to ignore as long as you're opening the sample in a compatible version (Unity 6+). You can press "Continue" and you might get another modal saying "URP Material upgrade" which you can safely press "Ok" on.
 
+## Mobile Setup
+
+This sample runs on Android and iOS as well as desktop. For mobile, open and build `Assets/Scenes/Mobile.unity`, a portrait scene that reuses the same prefabs and `DiscordManager` as the desktop `Example` scene.
+
+### The OAuth redirect is configured for you
+
+`Client.Authorize()` redirects back to your app through a custom URL scheme, `discord-<APP_ID>`. That scheme must be declared in each platform's build output, which normally means hand-editing the Android manifest and iOS `Info.plist`. Two editor scripts in `Assets/Scripts/Editor/` do this for you at build time, reading your Application ID from `DiscordSocialSdkConfig`:
+
+- `AndroidPostBuildProcessor.cs` adds the `com.discord.socialsdk.AuthenticationActivity` entry and its `discord-<APP_ID>` intent filter to the Android manifest.
+- `iOSPostBuildProcessor.cs` adds the `discord-<APP_ID>` scheme to `CFBundleURLTypes` in the iOS `Info.plist`.
+
+Set your Application ID once and build; there's nothing else to edit. Without these scripts, `Client.Authorize()` has nowhere to redirect and login fails.
+
 ## Project Structure
 This sample creates easy to use prefabs that can be used to build out parts of the Discord Social SDK. The central piece is the `DiscordManager` which handles the connection to Discord and provides access to the SDK features. In order to use the `DiscordManager`, you need to create a `DiscordSocialSdkConfig` Scriptable Object with the Application ID from the Discord Developer Portal and assign it to the `DiscordManager`. The friend list is built using the `FriendsList` prefab, which contains the logic to fetch and display friends. Each friend is represented by a `FriendUI` prefab that shows their username, status, and profile picture. Rich Presence is handled by the `RichPresence` prefab, which updates the user's activity status in Discord. The `Lobby` prefab allows the player to create and leave a lobby which will update their Rich Presence and allow their friends to request to join their lobby through the Discord client. Each prefab is easy to drop into your scene and customize as needed.
 
