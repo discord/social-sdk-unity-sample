@@ -60,10 +60,10 @@ public class GameManager : MonoBehaviour
         richPresence = FindFirstObjectByType<RichPresence>();
 
         DiscordManager.Instance.OnDiscordStatusChanged += OnStatusChanged;
+        DiscordManager.Instance.OnDiscordSetActivityJoinCallback += OnSetActivityJoinCallback;
+        DiscordManager.Instance.OnDiscordLobbyDeleted += OnDiscordLobbyDeleted;
         DiscordManager.Instance.OnDiscordLobbyMemberAdded += OnLobbyMemberAdded;
         DiscordManager.Instance.OnDiscordLobbyMemberRemoved += OnLobbyMemberRemoved;
-        DiscordManager.Instance.OnDiscordLobbyDeleted += OnDiscordLobbyDeleted;
-        DiscordManager.Instance.OnDiscordSetActivityJoinCallback += OnSetActivityJoinCallback;
 
         client.SetDeviceChangeCallback(OnAudioDevicesChanged);
 
@@ -75,14 +75,11 @@ public class GameManager : MonoBehaviour
 
     void OnDestroy()
     {
-        if (DiscordManager.Instance != null)
-        {
-            DiscordManager.Instance.OnDiscordStatusChanged -= OnStatusChanged;
-            DiscordManager.Instance.OnDiscordLobbyMemberAdded -= OnLobbyMemberAdded;
-            DiscordManager.Instance.OnDiscordLobbyMemberRemoved -= OnLobbyMemberRemoved;
-            DiscordManager.Instance.OnDiscordLobbyDeleted -= OnDiscordLobbyDeleted;
-            DiscordManager.Instance.OnDiscordSetActivityJoinCallback -= OnSetActivityJoinCallback;
-        }
+        DiscordManager.Instance.OnDiscordStatusChanged -= OnStatusChanged;
+        DiscordManager.Instance.OnDiscordSetActivityJoinCallback -= OnSetActivityJoinCallback;
+        DiscordManager.Instance.OnDiscordLobbyDeleted -= OnDiscordLobbyDeleted;
+        DiscordManager.Instance.OnDiscordLobbyMemberAdded -= OnLobbyMemberAdded;
+        DiscordManager.Instance.OnDiscordLobbyMemberRemoved -= OnLobbyMemberRemoved;
 
         if (client != null && currentLobbyId != 0)
             client.LeaveLobby(currentLobbyId, (ClientResult _) => { });
@@ -101,22 +98,26 @@ public class GameManager : MonoBehaviour
     private void CreateLobby()
     {
         lobbySecret = System.Guid.NewGuid().ToString();
+
         createLobbyButton.gameObject.SetActive(false);
+
         client.CreateOrJoinLobby(lobbySecret, OnCreateOrJoinLobby);
     }
 
     public void JoinLobby(string secret)
     {
         lobbySecret = secret;
+
         createLobbyButton.gameObject.SetActive(false);
-        client.CreateOrJoinLobby(lobbySecret, OnCreateOrJoinLobby);
+
+        client.CreateOrJoinLobby(secret, OnCreateOrJoinLobby);
     }
 
     private void OnCreateOrJoinLobby(ClientResult result, ulong lobbyId)
     {
         if(!result.Successful())
         {
-            Debug.LogError("Lobby creation or join was unsuccessful");
+            lobbySecret = null;
             createLobbyButton.gameObject.SetActive(true);
             return;
         }
@@ -124,41 +125,43 @@ public class GameManager : MonoBehaviour
         currentLobbyId = lobbyId;
         leaveLobbyButton.gameObject.SetActive(true);
 
-        richPresence.UpdateRichPresenceWithLobby(ActivityTypes.Playing, "In Lobby", "Waiting for friends", lobbySecret, lobbyId.ToString(), maxLobbySize);
-
         SpawnLocalPlayer();
         SpawnExistingRemotePlayers(lobbyId);
 
-        StartAudioCall();
+        richPresence.UpdateRichPresenceWithLobby(ActivityTypes.Playing, "Playing", "Dungeon level 1", lobbySecret, lobbyId.ToString(), maxLobbySize);
 
         OnLobbyJoined?.Invoke(lobbyId, lobbySecret);
+
+        StartAudioCall();
     }
 
     private void OnSetActivityJoinCallback(string secret)
     {
-        DiscordManager.Instance.OnLog($"Activity-join callback received secret {secret}", LoggingSeverity.Warning);
         JoinLobby(secret);
     }
 
     private void LeaveLobby()
     {
-        if (currentLobbyId == 0) return;
+        if(currentLobbyId == 0)
+        {
+            return;
+        }
+
         leaveLobbyButton.gameObject.SetActive(false);
         client.LeaveLobby(currentLobbyId, OnLeaveLobby);
     }
 
     private void OnLeaveLobby(ClientResult result)
     {
-        if (!result.Successful())
+        if(!result.Successful())
         {
-            Debug.LogError($"Failed to leave lobby: {result}");
             leaveLobbyButton.gameObject.SetActive(true);
             return;
         }
 
         TearDownLobby();
+        richPresence.SetDefaultRichPresence();
         createLobbyButton.gameObject.SetActive(true);
-        if (richPresence != null) richPresence.SetDefaultRichPresence();
     }
 
     private void OnDiscordLobbyDeleted(ulong lobbyId)
@@ -166,6 +169,8 @@ public class GameManager : MonoBehaviour
         if (lobbyId != currentLobbyId) return;
         TearDownLobby();
         createLobbyButton.gameObject.SetActive(true);
+        leaveLobbyButton.gameObject.SetActive(false);
+        richPresence.SetDefaultRichPresence();
     }
 
     private void TearDownLobby()
@@ -180,18 +185,52 @@ public class GameManager : MonoBehaviour
 
     private void OnLobbyMemberAdded(ulong lobbyId, ulong userId)
     {
-        if (lobbyId != currentLobbyId) return;
-        if (userId == myUserId) return;
+        if(lobbyId != currentLobbyId)
+        {
+            return;
+        }
+
         SpawnRemotePlayer(userId);
     }
 
     private void OnLobbyMemberRemoved(ulong lobbyId, ulong userId)
     {
-        if (lobbyId != currentLobbyId) return;
-        if (!remotePlayers.TryGetValue(userId, out var remote)) return;
-        Destroy(remote.gameObject);
-        remotePlayers.Remove(userId);
-        voiceSources.TryRemove(userId, out _);
+        if(lobbyId != currentLobbyId)
+        {
+            return;
+        }
+
+        DespawnRemotePlayer(userId);
+    }
+
+    private void StartAudioCall()
+    {
+        activeCall = client.StartCallWithAudioCallbacks(currentLobbyId, OnVoiceAudioReceived, (data, samplesPerChannel, sampleRate, channels) => {});
+        //client.SetNoiseCancellation(true);
+        activeCall.SetVADThreshold(false, -100);
+    }
+
+    private void EndAudioCall()
+    {
+        if(activeCall == null)
+        {
+            return;
+        }
+
+        client.EndCall(currentLobbyId, () => {});
+        activeCall = null;
+    }
+
+    // Called by Discord on its audio thread with one user's PCM frame.
+    private void OnVoiceAudioReceived(ulong userId, System.IntPtr data, ulong samplesPerChannel,
+                                      int sampleRate, ulong channels, ref bool outShouldMute)
+    {
+        outShouldMute = true;
+
+        if(voiceSources.TryGetValue(userId, out VoiceAudioSource voiceSource))
+        {
+            voiceSource.FeedSamples(data, samplesPerChannel, channels);
+        }
     }
 
     private void SpawnLocalPlayer()
@@ -231,6 +270,14 @@ public class GameManager : MonoBehaviour
         localPlayerObj = null;
     }
 
+    private void DespawnRemotePlayer(ulong userId)
+    {
+        if (!remotePlayers.TryGetValue(userId, out var remote)) return;
+        Destroy(remote.gameObject);
+        remotePlayers.Remove(userId);
+        voiceSources.TryRemove(userId, out _);
+    }
+
     private void DespawnAllRemotePlayers()
     {
         foreach (var remote in remotePlayers.Values)
@@ -241,41 +288,6 @@ public class GameManager : MonoBehaviour
 
     private Vector3 SpawnPosition() => spawnPoint != null ? spawnPoint.position : Vector3.zero;
     private Quaternion SpawnRotation() => spawnPoint != null ? spawnPoint.rotation : Quaternion.identity;
-
-    private void StartAudioCall()
-    {
-        activeCall = client.StartCallWithAudioCallbacks(currentLobbyId, OnVoiceAudioReceived, (data, samplesPerChannel, sampleRate, channels) => { });
-
-        if (activeCall == null)
-        {
-            Debug.LogWarning("Unable to create call");
-            return;
-        }
-
-        activeCall.SetVADThreshold(false, -100f);
-    }
-
-    private void EndAudioCall()
-    {
-        if(activeCall == null)
-        {
-            return;
-        }
-        client.EndCall(currentLobbyId, () => { });
-        activeCall = null;
-    }
-
-    // Called by Discord on its audio thread with one user's PCM frame.
-    private void OnVoiceAudioReceived(ulong userId, System.IntPtr data, ulong samplesPerChannel,
-                                      int sampleRate, ulong channels, ref bool outShouldMute)
-    {
-        outShouldMute = true;
-
-        if(voiceSources.TryGetValue(userId, out var voiceSource))
-        {
-            voiceSource.FeedSamples(data, samplesPerChannel, channels);
-        }
-    }
 
     private void OnAudioDevicesChanged(AudioDevice[] inputDevices, AudioDevice[] outputDevices)
     {
