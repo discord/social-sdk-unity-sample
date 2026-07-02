@@ -767,8 +767,8 @@ PlayerSettings:
   webGLCloseOnQuit: 0
   webWasm2023: 0
   scriptingDefineSymbols:
-    Android: DISCORD_SOCIAL_SDK_EXISTS
-    Standalone: DISCORD_SOCIAL_SDK_EXISTS
+    Android:
+    Standalone:
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
