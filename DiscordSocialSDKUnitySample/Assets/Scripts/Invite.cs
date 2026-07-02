@@ -14,6 +14,7 @@ public class Invite : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Button inviteButton;
     [SerializeField] private FriendUI friendUI;
+    [SerializeField] private bool forceShowButton = false;
 
     private Lobby lobby;
 
@@ -23,7 +24,11 @@ public class Invite : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     void Start()
     {
         inviteButton.onClick.AddListener(InviteFriend);
-        inviteButton.gameObject.SetActive(false);
+
+        if(!forceShowButton)
+        {
+            inviteButton.gameObject.SetActive(false);   
+        }
 
         lobby = FindFirstObjectByType<Lobby>();
 
@@ -40,7 +45,10 @@ public class Invite : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        inviteButton.gameObject.SetActive(false);
+        if(!forceShowButton)
+        {
+            inviteButton.gameObject.SetActive(false);   
+        }
     }
 
     private void InviteFriend()

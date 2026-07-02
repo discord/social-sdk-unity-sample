@@ -5,9 +5,13 @@
 /// to create a depth illusion. The object will move away from the mouse with
 /// configurable intensity and smoothing.
 /// 
-/// This is used to create a cool looking background in the example scene
+/// This is used to create a cool looking background in the example scene.
+///
+/// On touch devices there is no mouse, so the effect is skipped and the
+/// background simply rests at its start position.
 /// </summary>
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 public class MouseParallax : MonoBehaviour
@@ -33,8 +37,12 @@ public class MouseParallax : MonoBehaviour
     {
         if (mainCamera == null) return;
 
+        // No mouse on touch devices — leave the background at its rest position.
+        var mouse = Mouse.current;
+        if (mouse == null) return;
+
         // Get mouse position in viewport coordinates (0-1)
-        Vector3 mouseViewport = mainCamera.ScreenToViewportPoint(Input.mousePosition);
+        Vector3 mouseViewport = mainCamera.ScreenToViewportPoint(mouse.position.ReadValue());
 
         // Convert to centered coordinates (-0.5 to 0.5)
         mouseViewport.x -= 0.5f;

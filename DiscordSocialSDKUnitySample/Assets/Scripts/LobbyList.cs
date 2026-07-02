@@ -18,7 +18,6 @@ public class LobbyList : MonoBehaviour
     [SerializeField] private GameObject lobbyPlayerUIPrefab;
     [SerializeField] private Transform content;
     private Dictionary<ulong, Transform> lobbyPlayerUIObjects = new Dictionary<ulong, Transform>();
-    private ulong currentLobbyId = 0;
 
 #if DISCORD_SOCIAL_SDK_EXISTS
     private Client client;
@@ -27,23 +26,30 @@ public class LobbyList : MonoBehaviour
     {
         client = DiscordManager.Instance.GetClient();
 
-        DiscordManager.Instance.OnDiscordLobbyCreated += LobbyCreated;
+        DiscordManager.Instance.OnDiscordLobbyCreated += LobbyCreatedOrJoined;
         DiscordManager.Instance.OnDiscordLobbyDeleted += LobbyDeleted;
         DiscordManager.Instance.OnDiscordLobbyMemberAdded += LobbyMemberAdded;
         DiscordManager.Instance.OnDiscordLobbyMemberRemoved += LobbyMemberRemoved;
     }
 
-    private void LobbyCreated(ulong lobbyId)
+    private void LobbyCreatedOrJoined(ulong lobbyId)
     {
-        currentLobbyId = lobbyId;
-
         foreach (Transform child in content)
         {
             Destroy(child.gameObject);
         }
         lobbyPlayerUIObjects.Clear();
-        
-        LobbyMemberAdded(lobbyId, client.GetCurrentUser().Id());
+
+        LobbyHandle lobby = client.GetLobbyHandle(lobbyId);
+        if (lobby == null)
+        {
+            return;
+        }
+
+        foreach (ulong userId in lobby.LobbyMemberIds())
+        {
+            LobbyMemberAdded(lobbyId, userId);
+        }
     }
 
     private void LobbyDeleted(ulong lobbyId)
@@ -57,9 +63,23 @@ public class LobbyList : MonoBehaviour
 
     private void LobbyMemberAdded(ulong lobbyId, ulong userId)
     {
+        if (lobbyPlayerUIObjects.ContainsKey(userId))
+        {
+            return;
+        }
+
         GameObject playerUIObject = Instantiate(lobbyPlayerUIPrefab, content);
-        StartCoroutine(LoadAvatarFromUrl(client.GetUser(userId).AvatarUrl(UserHandle.AvatarType.Png, UserHandle.AvatarType.Png), playerUIObject.GetComponentInChildren<Image>()));
         lobbyPlayerUIObjects[userId] = playerUIObject.transform;
+
+        UserHandle user = client.GetLobbyHandle(lobbyId)?.GetLobbyMemberHandle(userId)?.User();
+        if (user != null)
+        {
+            StartCoroutine(LoadAvatarFromUrl(user.AvatarUrl(UserHandle.AvatarType.Png, UserHandle.AvatarType.Png), playerUIObject.GetComponentInChildren<Image>()));
+        }
+        else
+        {
+            Debug.LogWarning($"No UserHandle available for lobby member {userId}; avatar will not be loaded.");
+        }
     }
 
     private void LobbyMemberRemoved(ulong lobbyId, ulong userId)

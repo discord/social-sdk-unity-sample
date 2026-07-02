@@ -46,6 +46,9 @@ public class DiscordManager : MonoBehaviour
     public delegate void SetActivityInviteCreatedHandler(ActivityInvite invite);
     public event SetActivityInviteCreatedHandler OnDiscordSetActivityInviteCreated;
 
+    public delegate void ActivityJoinHandler(string joinSecret);
+    public event ActivityJoinHandler OnDiscordActivityJoin;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -67,6 +70,7 @@ public class DiscordManager : MonoBehaviour
         client.SetLobbyMemberAddedCallback(OnLobbyMemberAdded);
         client.SetLobbyMemberRemovedCallback(OnLobbyMemberRemoved);
         client.SetActivityInviteCreatedCallback(OnSetActivityInviteCreated);
+        client.SetActivityJoinCallback(OnActivityJoin);
     }
 
     void Start()
@@ -150,6 +154,14 @@ public class DiscordManager : MonoBehaviour
         if (OnDiscordSetActivityInviteCreated != null)
         {
             OnDiscordSetActivityInviteCreated.Invoke(invite);
+        }
+    }
+
+    private void OnActivityJoin(string joinSecret)
+    {
+        if (OnDiscordActivityJoin != null)
+        {
+            OnDiscordActivityJoin.Invoke(joinSecret);
         }
     }
 

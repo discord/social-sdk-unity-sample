@@ -29,6 +29,7 @@ public class Lobby : MonoBehaviour
 
         client = DiscordManager.Instance.GetClient();
         DiscordManager.Instance.OnDiscordStatusChanged += OnStatusChanged;
+        DiscordManager.Instance.OnDiscordActivityJoin += OnActivityJoin;
 
         createLobbyButton.onClick.AddListener(CreateLobby);
         leaveLobbyButton.onClick.AddListener(LeaveLobby);
@@ -69,6 +70,11 @@ public class Lobby : MonoBehaviour
         createLobbyButton.gameObject.SetActive(false);
         lobbySecret = System.Guid.NewGuid().ToString();
         client.CreateOrJoinLobby(lobbySecret, OnCreateOrJoinLobby);
+    }
+
+    private void OnActivityJoin(string joinSecret)
+    {
+        JoinLobby(joinSecret);
     }
 
     public void JoinLobby(string lobbySecret)
