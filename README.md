@@ -110,6 +110,8 @@ This sample runs on Android and iOS as well as desktop. For mobile, open and bui
 
 Set your Application ID once and build; there's nothing else to edit. Without these scripts, `Client.Authorize()` has nowhere to redirect and login fails.
 
+https://github.com/user-attachments/assets/55ebb428-4fcc-4a59-89d7-96b4ef8ce99b
+
 ## Project Structure
 This sample creates easy to use prefabs that can be used to build out parts of the Discord Social SDK. The central piece is the `DiscordManager` which handles the connection to Discord and provides access to the SDK features. In order to use the `DiscordManager`, you need to create a `DiscordSocialSdkConfig` Scriptable Object with the Application ID from the Discord Developer Portal and assign it to the `DiscordManager`. The friend list is built using the `FriendsList` prefab, which contains the logic to fetch and display friends. Each friend is represented by a `FriendUI` prefab that shows their username, status, and profile picture. Rich Presence is handled by the `RichPresence` prefab, which updates the user's activity status in Discord. The `Lobby` prefab allows the player to create and leave a lobby which will update their Rich Presence and allow their friends to request to join their lobby through the Discord client. Each prefab is easy to drop into your scene and customize as needed.
 
