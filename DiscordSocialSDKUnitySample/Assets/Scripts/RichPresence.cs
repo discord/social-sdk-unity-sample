@@ -45,6 +45,8 @@ public class RichPresence : MonoBehaviour
         activity.SetType(type);
         activity.SetState(state);
         activity.SetDetails(details);
+        // Declare which platforms this game runs on so friends can accept invites cross-device. Required for mobile
+        activity.SetSupportedPlatforms(ActivityGamePlatforms.Desktop | ActivityGamePlatforms.IOS | ActivityGamePlatforms.Android);
 
         var activityTimestamp = new ActivityTimestamps();
         activityTimestamp.SetStart(startTimestamp);
@@ -65,6 +67,8 @@ public class RichPresence : MonoBehaviour
         activity.SetType(type);
         activity.SetState(state);
         activity.SetDetails(details);
+        // Declare which platforms this game runs on so friends can accept invites cross-device. Required for mobile
+        activity.SetSupportedPlatforms(ActivityGamePlatforms.Desktop | ActivityGamePlatforms.IOS | ActivityGamePlatforms.Android);
 
         ActivityParty party = new ActivityParty();
         party.SetId(lobbyId);

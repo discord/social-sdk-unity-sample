@@ -7,14 +7,14 @@ using UnityEditor.Build.Reporting;
 using UnityEditor.iOS.Xcode;
 
 /// <summary>
-/// Registers the Discord Social SDK's OAuth redirect URL scheme in the generated iOS Info.plist so
-/// the authentication flow can redirect back into the app.
+/// Configures the generated iOS Info.plist so the Discord Social SDK's authentication deep links
+/// work, writing two keys:
 ///
-/// When <c>Client.Authorize()</c> runs, the SDK opens the system browser and expects the redirect
-/// to return to the custom URI scheme <c>discord-{ApplicationId}:/authorize/callback</c>. iOS only
-/// routes that redirect if the scheme is declared under <c>CFBundleURLTypes</c> in the app's
-/// Info.plist; without the entry, <c>Client.Authorize()</c> has nowhere to return to and the login
-/// never completes.
+/// - <c>CFBundleURLTypes</c>: registers the custom URI scheme <c>discord-{ApplicationId}</c> so the
+///   OAuth redirect (<c>discord-{ApplicationId}:/authorize/callback</c>) can return to the app after
+///   <c>Client.Authorize()</c>
+/// - <c>LSApplicationQueriesSchemes</c>: registers the <c>discord</c> scheme so the app can detect
+///   the installed Discord app and deep link into it for authentication
 ///
 /// This runs after Unity generates the Xcode project, so the Info.plist is available to edit. The
 /// Application ID is read from the existing <see cref="DiscordSocialSDKConfig"/> asset, so no manual
@@ -24,6 +24,8 @@ public class iOSPostBuildProcessor : IPostprocessBuildWithReport
 {
     const string UrlTypesKey = "CFBundleURLTypes";
     const string UrlSchemesKey = "CFBundleURLSchemes";
+    const string QueriesSchemesKey = "LSApplicationQueriesSchemes";
+    const string DiscordAppScheme = "discord";
 
     public int callbackOrder => 0;
 
@@ -38,33 +40,23 @@ public class iOSPostBuildProcessor : IPostprocessBuildWithReport
         var plist = new PlistDocument();
         plist.ReadFromFile(plistPath);
 
-        string scheme = $"discord-{GetDiscordApplicationId()}";
+        // The custom scheme the OAuth callback redirects back to.
+        RegisterUrlScheme(plist.root, $"discord-{GetDiscordApplicationId()}");
 
-        // Skip if our scheme is already registered first so repeated builds stay idempotent.
-        if (SchemeAlreadyRegistered(plist.root, scheme))
-        {
-            return;
-        }
-
-        var urlTypes = plist.root.values.ContainsKey(UrlTypesKey)
-            ? plist.root[UrlTypesKey].AsArray()
-            : plist.root.CreateArray(UrlTypesKey);
-
-        var urlType = urlTypes.AddDict();
-        var schemes = urlType.CreateArray(UrlSchemesKey);
-        schemes.AddString(scheme);
+        // The scheme the app queries to detect and deep link into the installed Discord app.
+        RegisterQueryScheme(plist.root, DiscordAppScheme);
 
         plist.WriteToFile(plistPath);
     }
 
-    private bool SchemeAlreadyRegistered(PlistElementDict root, string scheme)
+    // Adds a scheme under CFBundleURLTypes if it isn't already registered, so repeated builds stay idempotent.
+    private void RegisterUrlScheme(PlistElementDict root, string scheme)
     {
-        if (!root.values.ContainsKey(UrlTypesKey))
-        {
-            return false;
-        }
+        var urlTypes = root.values.ContainsKey(UrlTypesKey)
+            ? root[UrlTypesKey].AsArray()
+            : root.CreateArray(UrlTypesKey);
 
-        foreach (var urlType in root[UrlTypesKey].AsArray().values)
+        foreach (var urlType in urlTypes.values)
         {
             var dict = urlType.AsDict();
             if (!dict.values.ContainsKey(UrlSchemesKey))
@@ -76,12 +68,32 @@ public class iOSPostBuildProcessor : IPostprocessBuildWithReport
             {
                 if (registered.AsString() == scheme)
                 {
-                    return true;
+                    return;
                 }
             }
         }
 
-        return false;
+        var newUrlType = urlTypes.AddDict();
+        var schemes = newUrlType.CreateArray(UrlSchemesKey);
+        schemes.AddString(scheme);
+    }
+
+    // Adds a scheme under LSApplicationQueriesSchemes if it isn't already present.
+    private void RegisterQueryScheme(PlistElementDict root, string scheme)
+    {
+        var queries = root.values.ContainsKey(QueriesSchemesKey)
+            ? root[QueriesSchemesKey].AsArray()
+            : root.CreateArray(QueriesSchemesKey);
+
+        foreach (var registered in queries.values)
+        {
+            if (registered.AsString() == scheme)
+            {
+                return;
+            }
+        }
+
+        queries.AddString(scheme);
     }
 
     private ulong GetDiscordApplicationId()
