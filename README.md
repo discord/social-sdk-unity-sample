@@ -7,16 +7,16 @@ https://github.com/user-attachments/assets/3bfcaa43-51f1-469f-b329-cbadbeab6102
 ## What This Sample Includes
 
 This sample showcases many Discord Social SDK features in a complete, interactive Unity scene:
-- **Account Linking & Authentication** - Discord OAuth2 integration with secure token storage
-- **Friends List** - Display and interact with Discord friends lists
-- **Rich Presence** - Dynamic Discord activity cards with lobby and invite integration
-- **Game Lobbies** - Create, join, and manage multiplayer lobbies
-- **Game Invitations** - Send deep-link invites to friends for instant lobby joining
+- **Account Linking & Authentication:** Discord OAuth2 integration with secure token storage
+- **Friends List:** Display and interact with Discord friends lists
+- **Rich Presence:** Dynamic Discord activity cards with lobby and invite integration
+- **Game Lobbies:** Create, join, and manage multiplayer lobbies
+- **Game Invitations:** Send invites for friends to join your lobby
 
 Planned features that haven't been implemented yet:
-- **Direct Messaging** - In-game messaging
-- **Linked Channels** - Connect game chat to Discord server channels
-- **User Profiles** - Fetch and display Discord user information
+- **Direct Messaging:** In-game messaging
+- **Linked Channels:** Connect game chat to Discord server channels
+- **User Profiles:** Fetch and display Discord user information
 
 ## Questions This Sample Answers
 How do I connect my players to each other and bring new players to my game?
@@ -99,21 +99,44 @@ You'll see this warning if you open the project in a different version of Unity 
 
 ## Mobile Setup
 
-This sample runs on Android and iOS as well as desktop. For mobile, open and build `Assets/Scenes/Mobile.unity`, a portrait scene that reuses the same prefabs and `DiscordManager` as the desktop `Example` scene.
+This sample runs on Android and iOS as well as desktop. For mobile, open and build `Assets/Scenes/Mobile.unity`, a portrait, mobile-first scene. It uses its own touch-friendly UI prefabs in `Assets/Prefabs/Mobile/` but shares the same `DiscordManager` and SDK logic as the desktop `Example` scene.
 
-### The OAuth redirect is configured for you
+### Add the mobile redirect URI
 
-`Client.Authorize()` redirects back to your app through a custom URL scheme, `discord-<APP_ID>`. That scheme must be declared in each platform's build output, which normally means hand-editing the Android manifest and iOS `Info.plist`. Two editor scripts in `Assets/Scripts/Editor/` do this for you at build time, reading your Application ID from `DiscordSocialSdkConfig`:
+Mobile OAuth redirects through a custom URL scheme instead of the desktop loopback address, and Discord rejects any redirect that isn't registered. In the [Discord Developer Portal](https://discord.com/developers/applications), open your app's **OAuth2** settings and add this under **Redirects**:
+
+```text
+discord-<APP_ID>:/authorize/callback
+```
+
+Replace `<APP_ID>` with your Application ID, for example `discord-1234567890:/authorize/callback`. Keep your desktop `http://127.0.0.1/callback` redirect from the Quick Start too; the SDK uses the right redirect for each platform automatically. Without the mobile entry, login fails because Discord won't redirect to an unregistered URI.
+
+### The redirect scheme is registered on-device for you
+
+For that redirect to reach the app, the `discord-<APP_ID>` scheme also has to be declared in each platform's build output, which normally means hand-editing the Android manifest and iOS `Info.plist`. Two editor scripts in `Assets/Scripts/Editor/` do this for you at build time, reading your Application ID from `DiscordSocialSdkConfig`:
 
 - `AndroidPostBuildProcessor.cs` adds the `com.discord.socialsdk.AuthenticationActivity` entry and its `discord-<APP_ID>` intent filter to the Android manifest.
-- `iOSPostBuildProcessor.cs` adds the `discord-<APP_ID>` scheme to `CFBundleURLTypes` in the iOS `Info.plist`.
+- `iOSPostBuildProcessor.cs` adds the `discord-<APP_ID>` scheme to `CFBundleURLTypes` (so the redirect returns to your app) and `discord` to `LSApplicationQueriesSchemes` (so login can deep link into the Discord app) in the iOS `Info.plist`.
 
-Set your Application ID once and build; there's nothing else to edit. Without these scripts, `Client.Authorize()` has nowhere to redirect and login fails.
+Set your Application ID once and build; the scripts register the redirect scheme for you.
+
+### Game invites on mobile
+
+`RichPresence.cs` sets `activity.SetSupportedPlatforms(Desktop | IOS | Android)`, so friends can accept your game invites from a mobile device. Accepting an invite **while the game is already running** joins the lobby with no extra setup.
+
+Launching the game from an invite **when it is closed** is not set up in this sample. Discord launches a closed game through a deep link URL configured on your app's **General** tab in the Developer Portal, which requires an `https` link (an iOS Universal Link / Android App Link) backed by a domain you control. That part is specific to your app and domain, so it lives outside this sample.
+
+### Mobile Troubleshooting
+
+#### Login opens Discord or the browser, but never returns to the app
+The mobile redirect URI isn't registered. Add `discord-<APP_ID>:/authorize/callback` to your app's OAuth2 > Redirects in the Developer Portal, exactly as shown above. This is separate from the on-device scheme the build scripts register.
 
 https://github.com/user-attachments/assets/55ebb428-4fcc-4a59-89d7-96b4ef8ce99b
 
 ## Project Structure
 This sample creates easy to use prefabs that can be used to build out parts of the Discord Social SDK. The central piece is the `DiscordManager` which handles the connection to Discord and provides access to the SDK features. In order to use the `DiscordManager`, you need to create a `DiscordSocialSdkConfig` Scriptable Object with the Application ID from the Discord Developer Portal and assign it to the `DiscordManager`. The friend list is built using the `FriendsList` prefab, which contains the logic to fetch and display friends. Each friend is represented by a `FriendUI` prefab that shows their username, status, and profile picture. Rich Presence is handled by the `RichPresence` prefab, which updates the user's activity status in Discord. The `Lobby` prefab allows the player to create and leave a lobby which will update their Rich Presence and allow their friends to request to join their lobby through the Discord client. Each prefab is easy to drop into your scene and customize as needed.
+
+For mobile, the `Mobile` scene uses touch-friendly variants of these prefabs in `Assets/Prefabs/Mobile/` (such as `MobileUI`, `MobileFriendsList`, and `FriendUIMobile`). They share the same `DiscordManager` and SDK logic as the desktop prefabs, so only the presentation differs.
 
 ## Resources
 
