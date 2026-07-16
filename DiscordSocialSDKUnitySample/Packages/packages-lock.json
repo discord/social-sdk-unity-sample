@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.discord.partnersdk": {
+      "version": "file:com.discord.partnersdk",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.unity.2d.animation": {
       "version": "10.1.4",
       "depth": 1,
